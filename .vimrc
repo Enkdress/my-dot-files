@@ -3,20 +3,32 @@ set relativenumber
 set numberwidth=4
 
 syntax enable
+   
+set smarttab
+set shiftwidth=2
+set tabstop=2
 
-set tabstop=4
+set lbr
+set tw=500
+
+set ai
+set si
+set wrap
 
 set showmatch
+set ruler
+set smartcase
+
+set foldcolumn=2
 
 set laststatus=2
 set cursorline
-
 set clipboard=unnamed
 
 set showcmd
 set encoding=utf-8
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/dot_files/.vim/plugged')
 
 " Themes
 Plug 'morhetz/gruvbox'
@@ -25,16 +37,17 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 " IDE
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
+Plug 'valloric/youcompleteme'
 
 call plug#end()
 
 colorscheme dracula
+set background=dark
 let g:dracula_bold=1
 let g:dracula_underline=1
 
 " NERDTree configuration
 let NERDTreeQuitOnOpen=1
-
 
 " Syntastic configuration
 "et statusline+=%#warningmsg#

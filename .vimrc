@@ -1,3 +1,5 @@
+let mapleader=" "
+
 filetype on
 filetype plugin on
 filetype indent on
@@ -26,6 +28,8 @@ set ai
 set si
 set wrap
 
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules
+
 set showmatch
 set ruler
 set smartcase
@@ -40,6 +44,7 @@ set signcolumn=yes
 
 highlight VertSplit ctermbg=NONE ctermfg=darkgray guibg=NONE
 highlight LineNr ctermfg=darkgrey
+highlight MatchParen cterm=none ctermbg=black ctermfg=red
 
 set laststatus=2
 set cursorline
@@ -48,8 +53,6 @@ set clipboard=unnamed
 set showcmd
 set encoding=utf-8
 
-highlight MatchParen cterm=none ctermbg=black ctermfg=red
-
 call plug#begin('~/dot_files/.vim/plugged')
 
 " Themes
@@ -57,10 +60,9 @@ Plug 'morhetz/gruvbox'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 " IDE
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
-Plug 'valloric/youcompleteme'
+" Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
+Plug 'neoclide/coc.nvim'
 
 " UI
 Plug 'vim-airline/vim-airline'
@@ -78,70 +80,88 @@ let g:dracula_bold=1
 let g:dracula_underline=1
 
 " NERDTree configuration
-let NERDTreeQuitOnOpen=1
-let NERDTreeShowHidden=1
-let NERDTreeWinSize=10
-let NERDTreeDirArrows=1
-let NERDTreeHijackNetrw=0
+" let NERDTreeQuitOnOpen=1
+" let NERDTreeShowHidden=1
+" let NERDTreeWinSize=30
+" let NERDTreeDirArrows=1
+" let NERDTreeHijackNetrw=0
+
+" nnoremap <Leader>r :NERDTreeCWD<CR>
 
 " Airline configuration
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter= 'unique_tail_improved'
+let g:airline#extensions#tabline#formatter= 'unique_tail'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_powerline_fonts=1
 
 " Git gutter configuration
-set updatetime=100
+set updatetime=600
 let g:gitgutter_enable=1
 highlight GitGutterAdd ctermfg=Green
 highlight GitGutterDelete ctermfg=Red
 highlight GitGutterChange ctermfg=Yellow
 
 
-" Syntastic configuration
+" Ctrl P configuration
+let g:ctrlp_working_path_mode = 'ca'
+let g:ctrlp_custom_ignore = {
+  \'dir': '\v[\/]\.(git|hg|svn|node_modules)$',
+  \'file':'\v\.(exe|so|dll)$',
+  \'link':'some_bad_symbolic_links',
+  \} 
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_eslint_exe = 'eslint --'
+" Coc Configuration
 
-set autoread
+let g:coc_explorer_global_presets = {
+      \   'floating': {
+      \      'position': 'floating',
+      \      'floating-width': 80,
+      \      'floating-position': 'center'
+      \   }
+      \ }
+nnoremap <silent><leader>ef :CocCommand explorer --preset floating <CR>
+nnoremap <silent><leader>e :CocCommand explorer<CR>
 
-" LANGUAGES
-""""""""""""""" JavaScript
-let g:syntastic_javascript_checkers = ['eslint', 'JSXHint']
-
-""""""""""""""" JSON
-let g:syntastic_json_checkers=['jsonlint']
-
-""""""""""""""" HTML
-let g:syntastic_html_checkers=['ESlint']
-
-""""""""""""""" CSS
-let g:syntastic_css_checkers=['CSSLint', 'PrettyCSS']
-
-""""""""""""""" TypeScript
-let g:syntastic_typescript_checkers=['ESLint', 'TSLint']
-
-"""""""""""""""""""""""""""""""""
-
-let mapleader=" "
-
-nnoremap <Leader>nt :NERDTreeFind<CR>
+nmap <leader>gd <Plug>(coc-definition)
+nmap <leader>gr <Plug>(coc-references)
 
 " Personal shortcuts
 
 " Normal mode
-nnoremap <leader>w :w<CR>
+nnoremap <c-s> :w<CR>
 nnoremap <leader>q :q<CR>
+
 nnoremap <leader>vp :vsplit<CR>
+
+nnoremap <leader>' :noh<CR>
+
+nnoremap <leader>tn :Te<CR>
+nnoremap <leader>a :tabprev<CR>
+nnoremap <leader>l :tabnext<CR>
+
+nnoremap <leader>f :CtrlP<CR>
+
+" Movement remap
+nnoremap a h
+nnoremap s l
+nnoremap h <CR>
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-h> <C-w><C-h>
+nnoremap <C-l> <C-w><C-l>
 
 " In Insert mode
 imap jj <Esc>
+
+" Quick pairs
+imap ( ()<ESC>i
+imap [ []<ESC>i
+imap { {}<ESC>i
 
 " File indentation
 autocmd FileType html setlocal shiftwidth=4 tabstop=4
 autocmd FileType js setlocal shiftwidth=2 tabstop=2
 autocmd FileType jsx  setlocal shiftwidth=2 tabstop=2
 
+" Open config file
+nmap <leader>0 :tabedit ~/dot_files/.vimrc<CR>

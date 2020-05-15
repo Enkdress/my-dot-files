@@ -53,7 +53,7 @@ set clipboard=unnamed
 set showcmd
 set encoding=utf-8
 
-call plug#begin('~/dot_files/.vim/plugged')
+call plug#begin('~/.dotFiles/.vim/plugged')
 
 " Themes
 Plug 'morhetz/gruvbox'
@@ -164,4 +164,4 @@ autocmd FileType js setlocal shiftwidth=2 tabstop=2
 autocmd FileType jsx  setlocal shiftwidth=2 tabstop=2
 
 " Open config file
-nmap <leader>0 :tabedit ~/dot_files/.vimrc<CR>
+nmap <leader>0 :tabedit ~/.dotFiles/.vimrc<CR>

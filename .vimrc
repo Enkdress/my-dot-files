@@ -74,7 +74,8 @@ Plug 'mxw/vim-jsx'
 
 call plug#end()
 
-colorscheme dracula
+colorscheme gruvbox 
+" colorscheme dracula 
 set background=dark
 let g:dracula_bold=1
 let g:dracula_underline=1

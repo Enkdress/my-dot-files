@@ -2,6 +2,20 @@
 <br/><br/>
 
 ## 1. Install neovim
+If you want the realease version you should download nvim.appimage
+```
+curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+chmod u+x nvim.appimage
+./nvim.appimage
+```
+
+and then give it a permission to execute and then move it to the bin folder
+```
+chmod +x nvim.appimage
+sudo mv nvim.appimage /usr/local/bin/nvim
+```
+
+
 For Debian based
 ```
 $ sudo apt-get install neovim
@@ -56,3 +70,34 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 ## 7. Install the plugins
 Into nvim run ```:PlugInstall```
+
+<br/>
+
+# Alacritty config
+Into ```~/.config``` folder create a symbolic link to ```~/.dotFiles/.config/alacritty```
+
+<br/>
+
+# Zsh config
+
+### ..* Install zsh 
+```
+$ sudo apt install zsh
+$ chsh -s $(which zsh)
+```
+
+### ..* Install powerlevel10k
+```
+$ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+$ echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.zshrc
+```
+
+### ..* Run powerlevel configuration
+```
+$ p10k configure
+```
+
+
+
+
+

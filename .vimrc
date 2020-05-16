@@ -4,6 +4,8 @@ filetype on
 filetype plugin on
 filetype indent on
 
+set termguicolors
+
 set expandtab
 set rnu
 set incsearch
@@ -74,8 +76,8 @@ Plug 'mxw/vim-jsx'
 
 call plug#end()
 
-colorscheme gruvbox 
-" colorscheme dracula 
+" colorscheme gruvbox 
+colorscheme dracula 
 set background=dark
 let g:dracula_bold=1
 let g:dracula_underline=1
@@ -112,6 +114,9 @@ let g:ctrlp_custom_ignore = {
   \} 
 
 " Coc Configuration
+autocmd FileType json syntax match Comment +\/\/.\+$+
+
+source $HOME/.dotFiles/nvimConf/cocConfig.vim
 
 let g:coc_explorer_global_presets = {
       \   'floating': {
@@ -123,9 +128,11 @@ let g:coc_explorer_global_presets = {
 nnoremap <silent><leader>ef :CocCommand explorer --preset floating <CR>
 nnoremap <silent><leader>e :CocCommand explorer<CR>
 
-nmap <leader>gd <Plug>(coc-definition)
-nmap <leader>gr <Plug>(coc-references)
-
+    " Color highlight coc-highlight extension
+    autocmd CursorHold * silent call CocActionAsync('highlight')
+    nmap <leader>pc <Plug>(pickColor)
+    nmap <leader>p <Plug>(colorPresentation)
+  
 " Personal shortcuts
 
 " Normal mode

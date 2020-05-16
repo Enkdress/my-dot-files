@@ -35,12 +35,15 @@ $ touch init.vim
 
 <br/>
 
-## 3. Modify the init.vim
-Add the following lines into the file
+## 3. Create .config symbolic link
+You can create this symbolic link for:
+..* nvim whit init.vim
+..* alacritty config
+
 ```
-set runtimepath^=~/.vim runtimepath+=~/.vim/after                               
-let &packpath = &runtimepath                                                
-source ~/.vimrc   
+$ ln -s ~/.dotFiles/.config/nvim $HOME/.config/
+and
+$ ln -s ~/.dotFiles/.config/alacritty $HOME/.config/
 ```
 
 <br/>
@@ -80,24 +83,51 @@ Into ```~/.config``` folder create a symbolic link to ```~/.dotFiles/.config/ala
 
 # Zsh config
 
-### ..* Install zsh 
+### * Install zsh 
 ```
 $ sudo apt install zsh
 $ chsh -s $(which zsh)
 ```
 
-### ..* Install powerlevel10k
+### * Install powerlevel10k
 ```
 $ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 $ echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.zshrc
 ```
 
-### ..* Run powerlevel configuration
+### * Run powerlevel configuration
 ```
 $ p10k configure
 ```
 
+# NeoVim plugins
+## Coc Plugin 
+Coc-extensions:
+* coc-explorer
+
+* coc-css
+
+* coc-git
+
+* coc-highlight
+
+* coc-json
+
+* coc-snippets
+
+* coc-tsserver
+
+* coc-html
+
+* coc-spell-checker
 
 
+## Install NVM
+```curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash```
+then run ```command -v nvm``` and should appear ```nvm```... If did not work you have to install manually
+read the documentation
 
-
+After that into the zsh config maybe is .zshrc or .p10k.zsh go to the last lines and add the following 
+```
+source $HOME/.dotFiles/personalConf.zsh
+```

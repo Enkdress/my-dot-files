@@ -1,0 +1,9 @@
+{
+  // Highlight extension
+  "coc.preferences.colorSupport": true,
+
+  // TsServer
+  "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
+  "javascript.showUnused": true,
+  "tsserver.log": "verbose"
+}

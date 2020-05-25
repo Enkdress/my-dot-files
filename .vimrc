@@ -106,7 +106,7 @@ highlight GitGutterChange ctermfg=Yellow
 
 
 " Ctrl P configuration
-let g:ctrlp_working_path_mode = 'ca'
+let g:ctrlp_working_path_mode = 'cr'
 let g:ctrlp_custom_ignore = {
   \'dir': '\v[\/]\.(git|hg|svn|node_modules)$',
   \'file':'\v\.(exe|so|dll)$',

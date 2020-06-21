@@ -191,6 +191,7 @@ bindsym $mod+Shift+p exec spotify
 exec --no-startup-id feh --bg-scale --randomize ~/Imágenes/*
 exec --no-startup-id compton --config ~/.config/compton/compton.conf
 exec --no-startup-id ~/.config/polybar/launch.sh
+exec --no-startup-id ~/.screenlayout/externalmonitor.sh
 
 #bar
 #{

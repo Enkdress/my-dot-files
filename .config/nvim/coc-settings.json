@@ -5,5 +5,7 @@
   // TsServer
   "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
   "javascript.showUnused": true,
-  "tsserver.log": "verbose"
+  "tsserver.log": "verbose",
+  "tsserver.trace.server": "verbose",
+  "tsserver.enableJavascript": true
 }

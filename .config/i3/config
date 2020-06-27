@@ -66,7 +66,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+bindsym $mod+Shift+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -93,8 +93,8 @@ set $ws10 "10"
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
-bindsym $mod+3 workspace number $ws3
-bindsym $mod+4 workspace number $ws4
+bindsym $mod+q workspace number $ws3
+bindsym $mod+w workspace number $ws4
 bindsym $mod+5 workspace number $ws5
 bindsym $mod+6 workspace number $ws6
 bindsym $mod+7 workspace number $ws7
@@ -167,6 +167,7 @@ client.placeholder          $bg      $bg        $cyan    $bg
 for_window [class="Alacritty"] move container to workspace $ws1, focus
 for_window [class="Google-chrome"] move container to workspace $ws2, focus
 for_window [class="Spotify"] move container to workspace $ws4, focus
+for_window [class="Code"] move container to workspace $ws3, focus
 for_window [class="Org.gnome.Nautilus"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="ranger"] floating enable
@@ -186,6 +187,7 @@ bindsym $mod+Shift+g exec google-chrome-stable
 bindsym $mod+Shift+v exec pavucontrol
 bindsym $mod+Shitf+u exec alacritty -e feh --bg-scale --randomize ~/Imágenes/*
 bindsym $mod+Shift+p exec spotify
+bindsym $mod+c exec code
 
 bindsym $mod+Shift+s exec alacritty -e systemctl suspend
 
@@ -198,15 +200,15 @@ exec --no-startup-id ~/.screenlayout/externalmonitor.sh
 #bar
 #{
     #position top
-		#font pango: monoki Nerd Font Regular 11
-		#colors
-		#{
+    #font pango: monoki Nerd Font Regular 11
+    #colors
+    #{
         ##                   Border Background Text
-				#focused_workspace   $fg    $fg        $bg
-				#active_workspace    $bg    $bg        $purple
-				#inactive_workspace  $bg    $bg        $cyan
-				#urgent_workspace    $bg    $bg        $magenta
-				#background          $bg
+        #focused_workspace   $fg    $fg        $bg
+        #active_workspace    $bg    $bg        $purple
+        #inactive_workspace  $bg    $bg        $cyan
+        #urgent_workspace    $bg    $bg        $magenta
+        #background          $bg
     #}
 #}
 

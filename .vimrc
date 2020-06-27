@@ -17,7 +17,7 @@ set relativenumber
 set numberwidth=4
 
 syntax enable
-   
+
 set smarttab
 set shiftwidth=2
 set tabstop=2
@@ -44,9 +44,9 @@ set splitright
 
 set signcolumn=yes
 
-highlight VertSplit ctermbg=NONE ctermfg=darkgray guibg=NONE
-highlight LineNr ctermfg=darkgrey
-highlight MatchParen cterm=none ctermbg=black ctermfg=red
+"highlight VertSplit ctermbg=NONE ctermfg=darkgray guibg=NONE
+"highlight LineNr ctermfg=darkgrey
+"highlight MatchParen cterm=none ctermbg=black ctermfg=red
 
 set laststatus=2
 set cursorline
@@ -59,40 +59,47 @@ call plug#begin('~/.dotFiles/.vim/plugged')
 
 " Themes
 Plug 'morhetz/gruvbox'
+Plug 'rakr/vim-one'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 " IDE
 Plug 'scrooloose/nerdtree'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'   
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdcommenter'
-Plug 'HerringtonDarkholme/yats.vim'
 Plug 'kien/ctrlp.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'neoclide/coc.nvim'
+Plug 'neoclide/coc.nvim'
+Plug 'dense-analysis/ale'
+Plug 'tpope/vim-fugitive'
 
 " UI
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'Yggdroot/indentLine'
+Plug 'mhinz/vim-startify'
 
 " Languages
+Plug 'yuezk/vim-js'
+Plug 'pangloss/vim-javascript'
+Plug 'HerringtonDarkholme/yats.vim'
+
 Plug 'mxw/vim-jsx'
-Plug 'leafgarland/typescript-vim'
+
 Plug 'ianks/vim-tsx'
 Plug 'leafgarland/typescript-vim'
+
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 call plug#end()
 
+" Re scan all the document for better syntax highlighting
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
-colorscheme gruvbox 
-"colorscheme dracula 
+"colorscheme one
+colorscheme gruvbox
 set background=dark
-let g:dracula_bold=1
-let g:dracula_underline=1
 
 " NERDTree configuration
 let g:NERDTreeGitStatusWithFlags = 1
@@ -102,19 +109,16 @@ vmap <C-c> <plug>NERDCommenterToggle
 nmap <C-c> <plug>NERDCommenterToggle
 
 let g:NERDTreeIgnore = ['^node_modules$']
-" let NERDTreeQuitOnOpen=1
+let NERDTreeQuitOnOpen=1
+let NERDTreeDirArrows=1
 " let NERDTreeShowHidden=1
 " let NERDTreeWinSize=30
-" let NERDTreeDirArrows=1
 " let NERDTreeHijackNetrw=0
-
-" nnoremap <Leader>r :NERDTreeCWD<CR>
 
 " Airline configuration
 let g:airline#extensions#tabline#enabled = 0
-" let g:airline#extensions#tabline#formatter= 'unique_tail'
-" let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_powerline_fonts=1
+let g:airline_theme='one'
 
 " Git gutter configuration
 set updatetime=600
@@ -130,7 +134,7 @@ let g:ctrlp_custom_ignore = {
   \'dir': '\v[\/]\.(git|hg|svn|node_modules)$',
   \'file':'\v\.(exe|so|dll)$',
   \'link':'some_bad_symbolic_links',
-  \} 
+  \}
 
 " Coc Configuration
 autocmd FileType json syntax match Comment +\/\/.\+$+
@@ -139,24 +143,17 @@ let g:jsx_ext_required = 0
 source $HOME/.dotFiles/nvimConf/cocConfig.vim
 
 let g:coc_global_extensions = [
-  \ 'coc-snippets',
+  \ 'coc-git',
+  \ 'coc-emmet',
   \ 'coc-pairs',
   \ 'coc-tsserver',
-  \ 'coc-json', 
+  \ 'coc-json',
+  \ 'coc-css',
+  \ 'coc-html',
   \ ]
 
-"let g:coc_explorer_global_presets = {
-      "\   'floating': {
-      "\      'position': 'floating',
-      "\      'floating-width': 80,
-      "\      'floating-position': 'center'
-      "\   }
-      "\ }
-" nnoremap <silent><leader>ef :CocCommand explorer --preset floating <CR>
-" nnoremap <silent><leader>e :CocCommand explorer<CR>
-
 " Remap for rename current word
-nmap <F2> <Plug>(coc-rename)
+nmap rr <Plug>(coc-rename)
 
 " Remap for format selected region
 xmap <leader>f  <Plug>(coc-format-selected)
@@ -165,16 +162,44 @@ nmap <leader>f  <Plug>(coc-format-selected)
 augroup mygroup
   autocmd!
   " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  autocmd FileType typescript,javascript,json setl formatexpr=CocAction('formatSelected')
   " Update signature help on jump placeholder
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
+" Startify
+let g:startify_bookmarks = [ {'w': '~/.vimrc'}, {'e': '~/.config/i3/config'} ]
+let g:startify_update_oldfiles = 1
+let g:startify_session_autoload = 1
+let g:startify_session_delete_buffers = 0
+let g:startify_fortune_use_unicode = 1
+let g:startify_relative_path = 1
+let g:startify_custom_header =
+        \ startify#fortune#cowsay('', '═','║','╔','╗','╝','╚')
+
+let g:startify_custom_footer =
+       \ ['', "   Vim is awesome. You are going to damn good at it.", '']
+
+function! s:list_commits_dotFiles()
+  let git = 'git -C ~/.dotFiles'
+  let commits = systemlist(git .' log --oneline | head -n5')
+  let git = 'G'. git[1:]
+  return map(commits, '{"line": matchstr(v:val, "\\s\\zs.*"), "cmd": "'. git .' show ". matchstr(v:val, "^\\x\\+") }')
+endfunction
+
+let g:startify_lists = [
+      \ { 'header': ['   MRU'],            'type': 'files' },
+      \ { 'header': ['   Sessions'],       'type': 'sessions' },
+      \ { 'header': ['   Bookmarks'],       'type': 'bookmarks' },
+      \ { 'header': ['   Commits Personal Files'],        'type': function('s:list_commits_dotFiles') },
+      \ ]
+
 " Personal shortcuts
 
 " Normal mode
+nnoremap <a-m> :Startify<CR>
 nnoremap <c-s> :w<CR>
 nnoremap <leader>q :q<CR>
 
@@ -212,7 +237,7 @@ nmap <leader>0 :tabedit ~/.dotFiles/.vimrc<CR>
 
 " sync open file with NERDTree
 " " Check if NERDTree is open or active
-function! IsNERDTreeOpen()        
+function! IsNERDTreeOpen()
   return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
 endfunction
 
@@ -226,4 +251,4 @@ function! SyncTree()
 endfunction
 
 " Highlight currently open buffer in NERDTree
-autocmd BufEnter * call SyncTree()
+"autocmd BufEnter * call SyncTree()

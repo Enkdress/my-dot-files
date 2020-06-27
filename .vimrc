@@ -1,38 +1,30 @@
 let mapleader=" "
-
 filetype on
 filetype plugin on
 filetype indent on
+syntax enable
 
 set termguicolors
-
-set expandtab
-set rnu
-
-set showtabline=0
-
+set autoindent
 set smarttab
-set shiftwidth=2
 set tabstop=2
+set shiftwidth=2
 set softtabstop=2
-
-set ruler
-
+set showtabline=0
+set expandtab
+set relativenumber 
+set number
+set numberwidth=5
+set noswapfile
+set confirm
 set splitbelow
 set splitright
-
-set number
-set mouse=a
-set numberwidth=1
 set clipboard=unnamed
-syntax enable
 set showcmd
 set ruler
 set cursorline
 set encoding=utf-8
 set showmatch
-set sw=2
-set relativenumber
 
 so ~/.dotFiles/.vim/plugins.vim
 so ~/.dotFiles/.vim/plugins-conf.vim

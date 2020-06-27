@@ -1,8 +1,8 @@
 # Mod key
 set $mod Mod4
 
-# Font 
-font pango: monoki Nerd Font Regular 
+# Font
+font pango: monoki Nerd Font Regular
 font pango: chrome
 
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -187,7 +187,8 @@ bindsym $mod+Shift+g exec google-chrome-stable
 bindsym $mod+Shift+v exec pavucontrol
 bindsym $mod+Shitf+u exec alacritty -e feh --bg-scale --randomize ~/Imágenes/*
 bindsym $mod+Shift+p exec spotify
-bindsym $mod+c exec code
+#bindsym $mod+c exec code
+bindsym $mod+c exec alacritty -e nvim 
 
 bindsym $mod+Shift+s exec alacritty -e systemctl suspend
 

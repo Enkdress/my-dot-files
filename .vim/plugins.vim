@@ -6,15 +6,18 @@ Plug 'rakr/vim-one'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 " IDE
+Plug 'ctrlpvim/ctrlp.vim'
+
 Plug 'scrooloose/nerdtree'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'ryanoasis/vim-devicons'
-Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdcommenter'
-Plug 'kien/ctrlp.vim'
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-Plug 'dense-analysis/ale'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+Plug 'ryanoasis/vim-devicons'
+
 Plug 'tpope/vim-fugitive'
+
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+
 Plug 'terryma/vim-multiple-cursors'
 Plug 'easymotion/vim-easymotion'
 

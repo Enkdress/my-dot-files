@@ -20,6 +20,7 @@ let g:jsx_ext_required = 0
 let g:coc_global_extensions = [
   \ 'coc-git',
   \ 'coc-emmet',
+  \ 'coc-eslint',
   \ 'coc-pairs',
   \ 'coc-tsserver',
   \ 'coc-json',

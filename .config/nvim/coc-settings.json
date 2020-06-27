@@ -7,5 +7,13 @@
   "javascript.showUnused": true,
   "tsserver.log": "verbose",
   "tsserver.trace.server": "verbose",
-  "tsserver.enableJavascript": true
+  "tsserver.enableJavascript": true,
+
+  "eslint.run": "onType",
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ]
 }

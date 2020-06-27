@@ -75,7 +75,7 @@ let g:ctrlp_custom_ignore = {
 " Startify
 "
 " =========================================
-let g:startify_bookmarks = [ {'w': '~/.vimrc'}, {'e': '~/.config/i3/config'} ]
+let g:startify_bookmarks = [ {'w': '~/.dotFiles'}, {'e': '~/.config/i3/config'} ]
 let g:startify_update_oldfiles = 1
 let g:startify_session_autoload = 1
 let g:startify_session_delete_buffers = 0

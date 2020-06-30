@@ -2,6 +2,8 @@
   // Highlight extension
   "coc.preferences.colorSupport": true,
 
+  "npm.binPath": "~/.nvm/versions/node/v12.18.1/bin/npm",
+
   // TsServer
   "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
   "javascript.showUnused": true,

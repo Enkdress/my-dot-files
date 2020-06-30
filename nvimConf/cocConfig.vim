@@ -14,6 +14,8 @@ else
   set signcolumn=yes
 endif
 
+let g:coc_node_path = '/home/enkdress/.nvm/versions/node/v12.18.1/bin/node'
+
 autocmd FileType json syntax match Comment +\/\/.\+$+
 let g:jsx_ext_required = 0
 

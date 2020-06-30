@@ -4,6 +4,7 @@ filetype plugin on
 filetype indent on
 syntax enable
 
+set wildignore+=*/node_modules/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim$,\~$,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_latexmk
 set termguicolors
 set autoindent
 set smarttab
@@ -50,8 +51,8 @@ augroup filetype javascript syntax=javascript
 
 
 "" Searching
-set hlsearch                    " highlight matches
-set incsearch                   " incremental searching
+set nohlsearch                    " highlight matches
+"set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
 

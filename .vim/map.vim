@@ -7,10 +7,6 @@ nnoremap <leader>vp :vsplit<CR>
 
 nnoremap <leader>' :noh<CR>
 
-nnoremap <leader>tn :Te<CR>
-nnoremap <leader>k :tabprev<CR>
-nnoremap <leader>l :tabnext<CR>
-
 " Movement remap
 nnoremap a h
 nnoremap s l

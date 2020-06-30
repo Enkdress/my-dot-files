@@ -64,43 +64,88 @@ highlight GitGutterChange ctermfg=Yellow
 "
 " =========================================
 let g:ctrlp_working_path_mode = 'cr'
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_show_hidden = 1
 let g:ctrlp_custom_ignore = {
-  \'dir': '\v[\/]\.(git|hg|svn|node_modules)$',
-  \'file':'\v\.(exe|so|dll)$',
-  \'link':'some_bad_symbolic_links',
-  \}
-
+    \ 'dir':  '\v[\/]\.(git|hg|svn|node_modules)$',
+    \ 'file': '\v\.(exe|so|dll)$',
+    \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+    \ }
 " =========================================
 "
 " Startify
 "
 " =========================================
-let g:startify_bookmarks = [ {'w': '~/.dotFiles'}, {'e': '~/.config/i3/config'} ]
+let g:startify_bookmarks = [ 
+      \  '~/.dotFiles', 
+      \ '~/Documentos/Coding/portfolioClient', 
+      \ '~/.config/i3/config', 
+      \  ]
 let g:startify_update_oldfiles = 1
 let g:startify_session_autoload = 1
 let g:startify_session_delete_buffers = 0
 let g:startify_fortune_use_unicode = 1
 let g:startify_relative_path = 1
-let g:startify_custom_header =
-        \ startify#fortune#cowsay('', '═','║','╔','╗','╝','╚')
+let g:startify_custom_header = [
+      \'▓█████  ███▄    █  ██ ▄█▀▓█████▄  ██▀███  ▓█████   ██████   ██████ ',
+      \'▓█   ▀  ██ ▀█   █  ██▄█▒ ▒██▀ ██▌▓██ ▒ ██▒▓█   ▀ ▒██    ▒ ▒██    ▒ ',
+      \'▒███   ▓██  ▀█ ██▒▓███▄░ ░██   █▌▓██ ░▄█ ▒▒███   ░ ▓██▄   ░ ▓██▄   ',
+      \'▒▓█  ▄ ▓██▒  ▐▌██▒▓██ █▄ ░▓█▄   ▌▒██▀▀█▄  ▒▓█  ▄   ▒   ██▒  ▒   ██▒',
+      \'░▒████▒▒██░   ▓██░▒██▒ █▄░▒████▓ ░██▓ ▒██▒░▒████▒▒██████▒▒▒██████▒▒',
+      \'░░ ▒░ ░░ ▒░   ▒ ▒ ▒ ▒▒ ▓▒ ▒▒▓  ▒ ░ ▒▓ ░▒▓░░░ ▒░ ░▒ ▒▓▒ ▒ ░▒ ▒▓▒ ▒ ░',
+      \'░ ░  ░░ ░░   ░ ▒░░ ░▒ ▒░ ░ ▒  ▒   ░▒ ░ ▒░ ░ ░  ░░ ░▒  ░ ░░ ░▒  ░ ░',
+      \'░      ░   ░ ░ ░ ░░ ░  ░ ░  ░   ░░   ░    ░   ░  ░  ░  ░  ░  ░  ',
+      \'░  ░         ░ ░  ░      ░       ░        ░  ░      ░        ░  ',
+      \'          You are going to be awesome in programming bro!!!',
+      \  ]
 
 let g:startify_custom_footer =
        \ ['', "   Vim is awesome. You are going to be damn good at it.", '']
 
-function! s:list_commits_dotFiles()
+function! s:list_commits()
   let git = 'git -C ~/.dotFiles'
   let commits = systemlist(git .' log --oneline | head -n5')
   let git = 'G'. git[1:]
   return map(commits, '{"line": matchstr(v:val, "\\s\\zs.*"), "cmd": "'. git .' show ". matchstr(v:val, "^\\x\\+") }')
 endfunction
 
+function! s:list_projects() abort
+  return map(finddir('.git', $HOME . '/Documentos/**', -1),
+        \ {_, dir -> {'line': fnamemodify(dir, ':h:s?.*/??'), 'path': fnamemodify(dir, ':h')}})
+endfunction
+
 let g:startify_lists = [
-      \ { 'header': ['   MRU'],            'type': 'files' },
-      \ { 'header': ['   Sessions'],       'type': 'sessions' },
-      \ { 'header': ['   Bookmarks'],       'type': 'bookmarks' },
-      \ { 'header': ['   Commits Personal Files'],        'type': function('s:list_commits_dotFiles') },
+      \ { 'header': ['   Sessions'],         'type': 'sessions' },
+      \ { 'header': ['   MRU'],              'type': 'files' },
+      \ { 'header': ['   Bookmarks'],        'type': 'bookmarks', 'indices': map(range(1,100), { _ -> 'b' . string(v:val)}) },
+      \ { 'header': ['   GitHub Projects'],  'type':  function('s:list_projects'), 'indices': map(range(1, 100), { _ -> 'p' . string(v:val)}) },
+      \ { 'header': ['   Commits dotFiles'], 'type':  function('s:list_commits'), 'indices': map(range(1, 100), { _ -> 'c' . string(v:val)}) },
       \ ]
 
+" =========================================
+"
+" Easymotion 
+"
+" =========================================
+" Desable defautl mapping
+let g:EasyMotion_do_mapping = 0 
+
+" Better seatching highlight with easymotion
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
+" s{char}{char} to move to {char}{char}
+nmap h <Plug>(easymotion-overwin-f2)
+nmap t <Plug>(easymotion-s2)
+
+" Move to word
+map  <silent><Leader>w <Plug>(easymotion-bd-w)
+nmap <silent><Leader>w <Plug>(easymotion-overwin-w)
+
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
 
 " =========================================
 "

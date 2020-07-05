@@ -93,8 +93,8 @@ set $ws10 "10"
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
-bindsym $mod+q workspace number $ws3
-bindsym $mod+w workspace number $ws4
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
 bindsym $mod+5 workspace number $ws5
 bindsym $mod+6 workspace number $ws6
 bindsym $mod+7 workspace number $ws7
@@ -167,7 +167,7 @@ client.placeholder          $bg      $bg        $cyan    $bg
 for_window [class="Alacritty"] move container to workspace $ws1, focus
 for_window [class="Google-chrome"] move container to workspace $ws2, focus
 for_window [class="Spotify"] move container to workspace $ws4, focus
-for_window [class="Code"] move container to workspace $ws3, focus
+#for_window [class="Code"] move container to workspace $ws3, focus
 for_window [class="Org.gnome.Nautilus"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="ranger"] floating enable

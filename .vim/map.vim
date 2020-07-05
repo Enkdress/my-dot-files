@@ -26,3 +26,10 @@ autocmd FileType jsx  setlocal shiftwidth=2 tabstop=2
 " Open config file
 nmap <leader>0 :tabedit ~/.dotFiles/.vimrc<CR>
 
+nnoremap <C-t> :split<CR>:terminal<CR>:res -10<CR>
+nnoremap <c-b> :Rg<CR>
+
+nnoremap <a-'> :source ~/.dotFiles/.vimrc<CR>
+
+tnoremap <ESC> <C-\><C-n>
+tnoremap <leader>q :q<CR>

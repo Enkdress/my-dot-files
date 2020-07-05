@@ -63,7 +63,7 @@ highlight GitGutterChange ctermfg=Yellow
 " Ctrl P configuration
 "
 " =========================================
-let g:ctrlp_working_path_mode = 'cr'
+let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_custom_ignore = {
@@ -149,6 +149,44 @@ map  N <Plug>(easymotion-prev)
 
 " =========================================
 "
+" FZF 
+"
+" =========================================
+
+" Default fzf layout
+" - down / up / left / right
+let g:fzf_layout = { 'down': '40%' }
+
+if has('nvim') || has('gui_running')
+  let $FZF_DEFAULT_OPTS .= ' --inline-info'
+endif
+
+" Terminal buffer options for fzf
+"autocmd! FileType fzf
+"autocmd  FileType fzf set noshowmode noruler nonu
+
+if exists('$TMUX')
+  let g:fzf_layout = { 'tmux': '-p90%,60%' }
+endif
+
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let options = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  let options = fzf#vim#with_preview(options, 'right', 'ctrl-/')
+  call fzf#vim#grep(initial_command, 1, options, a:fullscreen)
+endfunction
+
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   "rg --column --line-number --no-heading --color=always --smart-case -- ".shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview('right', 'ctrl-/'), <bang>0)
+
+" =========================================
+"
 " Other Configuration
 "
 " =========================================
@@ -194,3 +232,4 @@ function! SearchPatternInFile(pattern)
     " has been found.
     return search_result
 endfunction
+

@@ -4,20 +4,18 @@ filetype plugin on
 filetype indent on
 syntax enable
 
-set wildignore+=*/node_modules/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim$,\~$,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_latexmk
+set wildignore+=*/node_modules/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim$,\~$,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_latexmk,*/.next/*
 set termguicolors
 set autoindent
 set smarttab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
-set showtabline=0
 set expandtab
 set relativenumber 
 set number
 set numberwidth=5
 set noswapfile
-set confirm
 set splitbelow
 set splitright
 set clipboard=unnamed
@@ -45,14 +43,17 @@ set noshowmode
 " Re scan all the document for better syntax highlighting
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
-autocmd BufRead *.js set filetype=javascript.jsx
-autocmd BufRead *.jsx set filetype=javascript.jsx
-augroup filetype javascript syntax=javascript
 
+autocmd BufRead *.js  set filetype=javascriptreact
+autocmd BufRead *.jsx set filetype=javascript.jsx
+autocmd BufRead *.ts  set filetype=tsx
+autocmd BufRead *.tsx set filetype=tsx
+
+augroup filetype javascript syntax=javascript
 
 "" Searching
 set nohlsearch                    " highlight matches
-"set incsearch                   " incremental searching
+set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
 

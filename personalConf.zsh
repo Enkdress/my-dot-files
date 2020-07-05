@@ -11,7 +11,8 @@ alias c="sudo rm -r ~/Documentos/http/search-engine; sudo cp -r ~/Documentos/sea
 alias gst="git status"
 alias gaa="git add ."
 alias gcm="git commit -m"
-alias gtp="git push"
+alias gp="git push"
+alias gck="git checkout"
 
 # Change layout
 alias es="localectl --no-convert set-x11-keymap es pc105"

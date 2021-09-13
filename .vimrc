@@ -30,7 +30,7 @@ so ~/.dotFiles/.vim/plugins-conf.vim
 so ~/.dotFiles/.vim/map.vim
 
 "colorscheme one
-colorscheme gruvbox
+colorscheme ghdark 
 set background=dark
 let g:gruvbox_contrast_dark = "hard"
 let g:jsx_ext_required = 0
@@ -52,7 +52,7 @@ autocmd BufRead *.tsx set filetype=tsx
 augroup filetype javascript syntax=javascript
 
 "" Searching
-set nohlsearch                    " highlight matches
+set nohlsearch                  " highlight matches
 set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter

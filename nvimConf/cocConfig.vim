@@ -14,14 +14,13 @@ else
   set signcolumn=yes
 endif
 
-let g:coc_node_path = '/home/enkdress/.nvm/versions/node/v12.18.1/bin/node'
+" let g:coc_node_path = '/home/enkdress/.nvm/versions/node/v12.18.1/bin/node'
 
 autocmd FileType json syntax match Comment +\/\/.\+$+
 let g:jsx_ext_required = 0
 
 let g:coc_global_extensions = [
   \ 'coc-git',
-  \ 'coc-emmet',
   \ 'coc-eslint',
   \ 'coc-pairs',
   \ 'coc-tsserver',

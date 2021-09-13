@@ -1,49 +1,51 @@
-call plug#begin('~/.dotFiles/.vim/plugged')
+call plug#begin('~/.vim/plugged')
+
+" syntax
+Plug 'sheerun/vim-polyglot'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'norcalli/nvim-colorizer.lua'
+
+" status bar
+Plug 'maximbaz/lightline-ale'
+Plug 'itchyny/lightline.vim'
 
 " Themes
 Plug 'morhetz/gruvbox'
-Plug 'rakr/vim-one'
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'wojciechkepka/vim-github-dark'
+Plug 'shinchu/lightline-gruvbox.vim'
 
-" IDE
-Plug 'ctrlpvim/ctrlp.vim'
-
+" Tree
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-Plug 'ryanoasis/vim-devicons'
-
-Plug 'tpope/vim-fugitive'
-
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-
-Plug 'terryma/vim-multiple-cursors'
-Plug 'easymotion/vim-easymotion'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-
-" UI
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'Yggdroot/indentLine'
-Plug 'mhinz/vim-startify'
-
-" Languages
+" typing
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-surround'
 
-Plug 'sheerun/vim-polyglot'
-Plug 'yuezk/vim-js'
-Plug 'pangloss/vim-javascript'
-Plug 'HerringtonDarkholme/yats.vim'
+" tmux
+Plug 'benmills/vimux'
+Plug 'christoomey/vim-tmux-navigator'
 
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'flowtype/vim-flow'
+" autocomplete
+Plug 'sirver/ultisnips'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'ianks/vim-tsx'
-Plug 'leafgarland/typescript-vim'
+" test
+Plug 'tyewang/vimux-jest-test'
+Plug 'janko-m/vim-test'
 
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+" IDE
+Plug 'editorconfig/editorconfig-vim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'easymotion/vim-easymotion'
+Plug 'mhinz/vim-signify'
+Plug 'yggdroot/indentline'
+Plug 'scrooloose/nerdcommenter'
+
+" git
+Plug 'tpope/vim-fugitive'
+
+Plug 'tpope/vim-repeat'
 
 call plug#end()

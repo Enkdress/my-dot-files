@@ -3,6 +3,7 @@ alias ls="ls --color"
 alias e="exit"
 
 alias v="nvim"
+alias vn="nvim ~/Documents/notes"
 
 alias i3conf="v ~/.dotFiles/.config/i3/config"
 alias c="sudo rm -r ~/Documentos/http/search-engine; sudo cp -r ~/Documentos/search-engine /srv/http/"
@@ -15,8 +16,8 @@ alias gp="git push"
 alias gck="git checkout"
 
 # Change layout
-alias es="localectl --no-convert set-x11-keymap es pc105"
-alias us="localectl --no-convert set-x11-keymap us pc104"
+alias es="setxkbmap -layout latam"
+alias us="setxkbmap -layout en"
 
 # Install nodejs and npm for every terminal emulator
 export NVM_DIR="$HOME/.nvm"

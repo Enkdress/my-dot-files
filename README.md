@@ -131,3 +131,8 @@ After that into the zsh config maybe is .zshrc or .p10k.zsh go to the last lines
 ```
 source $HOME/.dotFiles/personalConf.zsh
 ```
+# Packages
+* exa
+* picom jonaburg
+* nitrogen
+* systray

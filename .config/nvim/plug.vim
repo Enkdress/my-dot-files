@@ -13,7 +13,7 @@ Plug 'wojciechkepka/vim-github-dark'
 if has("nvim")
   Plug 'hoob3rt/lualine.nvim'
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'kabouzeid/nvim-lspinstall'
+  Plug 'williamboman/nvim-lsp-installer'
   Plug 'glepnir/lspsaga.nvim'
   Plug 'folke/lsp-colors.nvim'
   Plug 'kyazdani42/nvim-web-devicons'

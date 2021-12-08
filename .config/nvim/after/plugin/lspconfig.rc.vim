@@ -167,10 +167,10 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 
 -- lsp-install
 local function setup_servers()
-  require'lspinstall'.setup()
+  local lsp_installer = require('nvim-lsp-installer')
 
   -- get all installed servers
-  local servers = require'lspinstall'.installed_servers()
+  local servers = lsp_installer.installed_servers()
   -- ... and add manually installed servers
   table.insert(servers, "clangd")
   table.insert(servers, "sourcekit")
@@ -194,7 +194,7 @@ local function setup_servers()
 end
 
 -- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-require'lspinstall'.post_install_hook = function ()
+require'nvim-lsp-installer'.post_install_hook = function ()
   setup_servers() -- reload installed servers
   vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
 end

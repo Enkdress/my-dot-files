@@ -222,6 +222,7 @@ alias commit='git commit -m'
 alias fetch='git fetch'
 alias pull='git pull origin'
 alias push='git push origin'
+alias diff='git diff'
 alias stat='git status'  # 'status' is protected name so using 'stat' instead
 alias tag='git tag'
 alias newtag='git tag -a'
@@ -288,3 +289,14 @@ fi
 ### SETTING THE STARSHIP PROMPT ###
 eval "$(starship init zsh)"
 
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+export PATH=$PATH:$JAVA_HOME/bin
+export ANDROID_HOME=$HOME/Android
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export WSL_HOST=$(tail -1 /etc/resolv.conf | cut -d' ' -f2)
+export ADB_SERVER_SOCKET=tcp:$WSL_HOST:5037
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

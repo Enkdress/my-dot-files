@@ -4,7 +4,7 @@ if !exists('g:loaded_defx') | finish | endif
 "cnoreabbrev sf Defx -listed -new
 "      \ -columns=indent:mark:icon:icons:filename:git:size
 "      \ -buffer-name=tab`tabpagenr()`<CR>
-nnoremap <silent>sf :<C-u>Defx -listed -resume
+nnoremap <silent>sf :<C-u>Defx -listed -resume -ignored_files=none
       \ -columns=indent:mark:icon:icons:filename:git:size
       \ -buffer-name=tab`tabpagenr()`
       \ `expand('%:p:h')` -search=`expand('%:p')`<CR>
@@ -77,17 +77,17 @@ autocmd FileType defx call s:defx_my_settings()
 	endfunction
 
 call defx#custom#column('icon', {
-      \ 'directory_icon': '▸',
-      \ 'opened_icon': '▾',
-      \ 'root_icon': ' ',
+      \ 'directory_icon': '▸ ',
+      \ 'opened_icon': '▾ ',
+      \ 'root_icon': '  ',
       \ })
 call defx#custom#column('git', 'indicators', {
-  \ 'Modified'  : 'M',
-  \ 'Staged'    : '✚',
-  \ 'Untracked' : '✭',
-  \ 'Renamed'   : '➜',
-  \ 'Unmerged'  : '═',
-  \ 'Ignored'   : '☒',
-  \ 'Deleted'   : '✖',
-  \ 'Unknown'   : '?'
+  \ 'Modified'  : ' M ',
+  \ 'Staged'    : ' ✚ ',
+  \ 'Untracked' : ' ✭ ',
+  \ 'Renamed'   : ' ➜ ',
+  \ 'Unmerged'  : ' ═ ',
+  \ 'Ignored'   : ' ☒ ',
+  \ 'Deleted'   : ' ✖ ',
+  \ 'Unknown'   : ' ? '
   \ })

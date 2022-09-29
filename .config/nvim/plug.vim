@@ -6,11 +6,12 @@ call plug#begin()
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
-Plug 'catppuccin/nvim'
 Plug 'olimorris/onedarkpro.nvim'
+Plug 'navarasu/onedark.nvim'
 Plug 'wojciechkepka/vim-github-dark'
 
 if has("nvim")
+  Plug 'catppuccin/nvim', {'as': 'catppuccin'}
   Plug 'hoob3rt/lualine.nvim'
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'williamboman/nvim-lsp-installer'
@@ -35,6 +36,7 @@ if has("nvim")
   Plug 'hrsh7th/nvim-cmp'
   Plug 'hrsh7th/vim-vsnip'
   Plug 'hrsh7th/vim-vsnip-integ'
+
 endif
 
 call plug#end()

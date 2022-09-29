@@ -110,7 +110,6 @@ autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 " Imports "{{{
 " ---------------------------------------------------------------------
 runtime ./plug.vim
-runtime ./after/plugin/catppuccin.rc.vim
 runtime ./maps.vim
 "}}}
 
@@ -127,7 +126,7 @@ if exists("&termguicolors") && exists("&winblend")
   set background=dark
   " Use NeoSolarized
   let g:neosolarized_termtrans=1
-  colorscheme catppuccin
+  colorscheme onedark
 endif
 
 "}}}
@@ -135,6 +134,21 @@ endif
 " Extras "{{{
 " ---------------------------------------------------------------------
 set exrc
+
+nnoremap <silent><C-j> <Cmd>Lspsaga diagnostic_jump_next<CR>
+nnoremap <silent>K <Cmd>Lspsaga hover_doc<CR>
+inoremap <silent><C-k> <Cmd>Lspsaga signature_help<CR>
+nnoremap <silent>gh <Cmd>Lspsaga lsp_finder<CR>
+nnoremap <silent>gD <Cmd>Lspsaga preview_definition<CR>
+nnoremap <silent><space>e <Cmd>Lspsaga show_line_diagnostics<CR>
+nnoremap <silent><space>ca <Cmd>Lspsaga code_action<CR>
+nnoremap <silent><space>rn <Cmd>Lspsaga rename<CR>
+
+
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 "}}}
 
 " vim: set foldmethod=marker foldlevel=0:

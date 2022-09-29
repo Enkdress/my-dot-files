@@ -44,7 +44,7 @@ set noshowmode
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
-autocmd BufRead *.js  set filetype=javascriptreact
+autocmd BufRead *.js  set filetype=javascript.jsx
 autocmd BufRead *.jsx set filetype=javascript.jsx
 autocmd BufRead *.ts  set filetype=tsx
 autocmd BufRead *.tsx set filetype=tsx

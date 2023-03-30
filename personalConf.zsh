@@ -20,8 +20,8 @@ alias es="setxkbmap -layout latam"
 alias us="setxkbmap -layout en"
 
 # Install nodejs and npm for every terminal emulator
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export EDITOR='nvim'
 export TERM='xterm-256color'

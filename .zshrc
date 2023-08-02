@@ -42,10 +42,10 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 ### ALIASES ###
-source ./aliases.zsh
+source $HOME/.dotFiles/aliases.zsh
 
 ## Env Variables
-source ./enviroment-variables/init.zsh
+source $HOME/.dotFiles/enviroment-variables/init.zsh
 export PATH="/usr/local/opt/libpq/bin:$PATH"
 
 ### SETTING THE STARSHIP PROMPT ###

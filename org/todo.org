@@ -1,0 +1,6 @@
+#+title: ToDo
+#+author: Sergio Correa
+
+* TODO Retirar $720 lucas y enviarselas a mama :personal:
+ <2023-08-02 Wed>
+

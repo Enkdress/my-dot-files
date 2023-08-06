@@ -1,0 +1,46 @@
+import = ["/Users/sergio.correa/.config/alacritty/rose-pine/rose-pine-moon.toml"]
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[font]
+size = 12
+
+[font.bold]
+family = "Operator Mono"
+style = "Book Bold"
+
+[font.bold_italic]
+family = "Operator Mono"
+style = "Bold Italic"
+
+[font.italic]
+family = "Operator Mono"
+style = "Book Italic"
+
+[font.normal]
+family = "Operator Mono"
+style = "Book"
+
+[font.offset]
+x = 1
+y = 0
+
+[[keyboard.bindings]]
+chars = "\u0011"
+key = "Q"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u001F"
+key = "Slash"
+mods = "Control"
+
+[window]
+dynamic_padding = true
+opacity = 0.9
+startup_mode = "SimpleFullscreen"
+
+[window.padding]
+x = 20
+y = 10

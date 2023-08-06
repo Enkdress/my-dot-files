@@ -1,0 +1,65 @@
+import:
+ # - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
+ # - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
+ # - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
+ # - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
+ # - ~/.config/alacritty/gruvbox/gruvbox-dark.yml
+ # - ~/.config/alacritty/gruvbox/gruvbox-material-dark.yml
+ # - ~/.config/alacritty/gotham/gotham.yml
+ - ~/.config/alacritty/rose-pine/rose-pine-moon.yml
+ # - ~/.config/alacritty/rose-pine/rose-pine.yml
+
+draw_bold_text_with_bright_colors: true
+font:
+  size: 12
+  normal:
+    family: Operator Mono
+    style: Book
+  bold:
+    family: Operator Mono
+    style: Book Bold
+  italic:
+    family: Operator Mono
+    style: Book Italic
+  bold_italic:
+    family: Operator Mono
+    style: Bold Italic
+  offset:
+    x: 1
+    y: 0
+
+  # Glyph offset determines the locations of the glyphs within their cells with
+  # the default being at the bottom. Increasing `x` moves the glyph to the right,
+  # increasing `y` moves the glyph upwards.
+  #glyph_offset:
+  #  x: 0
+  #  y: 0
+
+  # Thin stroke font rendering (macOS only)
+  #
+  # Thin strokes are suitable for retina displays, but for non-retina screens
+  # it is recommended to set `use_thin_strokes` to `false`
+  #
+  # macOS >= 10.14.x:
+  #
+  # If the font quality on non-retina display looks bad then set
+  # `use_thin_strokes` to `true` and enable font smoothing by running the
+  # following command:
+  #   `defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO`
+  #
+  # This is a global setting and will require a log out or restart to take
+  # effect.
+use_thin_strokes: true
+
+key_bindings:
+  - { key: Q, mods: Control, chars: "\x11" }
+  - { key: Slash, mods: Control, chars: "\x1f" }
+
+window:
+  startup_mode: SimpleFullscreen
+  opacity: 0.9
+  padding:
+    y: 10
+    x: 20
+  dynamic_padding: true
+

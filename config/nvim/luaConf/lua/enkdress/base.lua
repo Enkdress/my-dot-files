@@ -43,3 +43,7 @@ vim.o.termguicolors = true
 
 vim.opt.path:append { '**' } -- Finding files - Search down into subfolders
 vim.opt.wildignore:append { '*/node_modules/*' }
+
+vim.o.conceallevel = 3
+vim.o.cursorline = true
+vim.o.ruler = true

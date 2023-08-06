@@ -2,12 +2,15 @@
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
 	-- Add languages to be installed here that you want installed for treesitter
-	ensure_installed = { 'lua', 'python', 'rust', 'tsx', 'typescript', 'help', 'vim', 'javascript' },
+	-- ensure_installed = { 'lua', 'python', 'rust', 'tsx', 'typescript', 'help', 'vim', 'javascript', 'norg' },
+	ensure_installed = { 'tsx', 'typescript', 'javascript' },
 
 	-- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
 	auto_install = true,
 
-	highlight = { enable = true },
+	highlight = {
+		enable = true,
+	},
 	indent = { enable = true, disable = { 'python' } },
 	incremental_selection = {
 		enable = true,
@@ -54,11 +57,11 @@ require('nvim-treesitter.configs').setup {
 		},
 		swap = {
 			enable = true,
-			swap_next = {
-				['<leader>a'] = '@parameter.inner',
-			},
 			swap_previous = {
 				['<leader>A'] = '@parameter.inner',
+			},
+			swap_next = {
+				['<leader>a'] = '@parameter.inner',
 			},
 		},
 	},

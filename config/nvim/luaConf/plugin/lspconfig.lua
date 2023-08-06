@@ -85,12 +85,13 @@ mason_lspconfig.setup_handlers {
 -- See `:help cmp`
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
-require('luasnip.loaders.from_vscode').lazy_load()
-luasnip.config.setup {}
 
 cmp.setup {
 	snippet = {
 		expand = function(args)
+			if not luasnip then
+				return
+			end
 			luasnip.lsp_expand(args.body)
 		end,
 	},
@@ -124,5 +125,6 @@ cmp.setup {
 	sources = {
 		{ name = 'nvim_lsp' },
 		{ name = 'luasnip' },
+		{ name = 'orgmode' },
 	},
 }

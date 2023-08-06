@@ -33,9 +33,6 @@ require('lazy').setup({
 			'williamboman/mason.nvim',
 			'williamboman/mason-lspconfig.nvim',
 
-			-- Useful status updates for LSP
-			{ 'j-hui/fidget.nvim', opts = {} },
-
 			-- Additional lua configuration, makes nvim stuff amazing!
 			'folke/neodev.nvim',
 		},
@@ -59,6 +56,7 @@ require('lazy').setup({
 
 	-- Useful plugin to show you pending keybinds.
 	{ 'folke/which-key.nvim',     opts = {} },
+	{ "folke/zen-mode.nvim" },
 
 	{ 'lewis6991/gitsigns.nvim' },
 
@@ -66,15 +64,13 @@ require('lazy').setup({
 	{ 'navarasu/onedark.nvim' },
 	{ "catppuccin/nvim",          as = "catppuccin" },
 	{ 'sainnhe/gruvbox-material', as = 'gruvbox' },
-
 	{
-		"folke/flash.nvim",
-		event = "VeryLazy",
-		opts = {}
+		'Enkdress/nordic.nvim',
+		lazy = false,
+		priority = 1000,
 	},
 
 	{ 'nvim-lualine/lualine.nvim' },
-
 	{
 		'lukas-reineke/indent-blankline.nvim',
 		opts = {
@@ -115,4 +111,65 @@ require('lazy').setup({
 		end,
 	},
 
+	{
+		"nvim-neorg/neorg",
+		build = ":Neorg sync-parsers",
+		dependencies = { { "nvim-lua/plenary.nvim" }, { "nvim-neorg/neorg-telescope" } },
+	},
+
+	{
+		"folke/flash.nvim",
+		event = "VeryLazy",
+		opts = {},
+		keys = {
+			{
+				"s",
+				mode = { "n", "x", "o" },
+				function()
+					require("flash").jump(
+						{
+							search = {
+								mode = function(str)
+									return "\\<" .. str
+								end,
+							},
+						}
+					)
+				end,
+				desc = "Flash",
+			},
+			{
+				"S",
+				mode = { "n", "o", "x" },
+				function()
+					require("flash").treesitter()
+				end,
+				desc = "Flash Treesitter",
+			},
+			{
+				"r",
+				mode = "o",
+				function()
+					require("flash").remote()
+				end,
+				desc = "Remote Flash",
+			},
+			{
+				"R",
+				mode = { "o", "x" },
+				function()
+					require("flash").treesitter_search()
+				end,
+				desc = "Flash Treesitter Search",
+			},
+			{
+				"<c-s>",
+				mode = { "c" },
+				function()
+					require("flash").toggle()
+				end,
+				desc = "Toggle Flash Search",
+			},
+		},
+	},
 }, {})

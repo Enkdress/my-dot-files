@@ -50,3 +50,10 @@ export PATH="/usr/local/opt/libpq/bin:$PATH"
 
 ### SETTING THE STARSHIP PROMPT ###
 eval "$(starship init zsh)"
+
+# bun completions
+[ -s "/Users/sergio.correa/.bun/_bun" ] && source "/Users/sergio.correa/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

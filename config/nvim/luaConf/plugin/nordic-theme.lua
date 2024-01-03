@@ -28,8 +28,9 @@ nordic.setup {
 }
 
 vim.cmd [[
-        silent! colorscheme nordic
+        silent! colorscheme gruvbox-material
 ]]
+
 vim.cmd [[
   hi! link @text.uri Constant
   hi! link @text.emphasis Macro

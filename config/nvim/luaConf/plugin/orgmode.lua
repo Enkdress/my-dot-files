@@ -13,9 +13,10 @@ require('neorg').setup {
 	},
 }
 
-vim.keymap.set('n', '\\ww', ':Neorg workspace ', {})
+vim.keymap.set('n', '\\ww', ':Neorg workspace second_brain<CR>', { silent = true })
 vim.keymap.set('n', '\\wq', ':Neorg return<CR>', { silent = true })
 vim.keymap.set('n', '\\wi', ':Neorg index<CR>', { silent = true })
+vim.keymap.set('n', '\\wj', ':Neorg journal<CR>', { silent = true })
 
 local neorg_callbacks = require("neorg.core.callbacks")
 

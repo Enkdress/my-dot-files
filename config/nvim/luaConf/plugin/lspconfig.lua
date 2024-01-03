@@ -1,6 +1,7 @@
+local navic = require("nvim-navic")
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
 	-- NOTE: Remember that lua is a real programming language, and as such it is possible
 	-- to define small helper and utility functions so you don't have to repeat yourself
 	-- many times.
@@ -13,6 +14,10 @@ local on_attach = function(_, bufnr)
 		end
 
 		vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+	end
+
+	if client.server_capabilities.documentSymbolProvider then
+		navic.attach(client, bufnr)
 	end
 
 	nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
@@ -53,11 +58,37 @@ local servers = {
 	-- gopls = {},
 	pyright = {},
 	rust_analyzer = {},
-	tsserver = {},
+	tsserver = {
+		typescript = {
+			inlayHints = {
+				includeInlayParameterNameHints = 'all',
+				includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+				includeInlayFunctionParameterTypeHints = true,
+				includeInlayVariableTypeHints = false,
+				includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+				includeInlayPropertyDeclarationTypeHints = true,
+				includeInlayFunctionLikeReturnTypeHints = false,
+				includeInlayEnumMemberValueHints = true,
+			}
+		},
+		javascript = {
+			inlayHints = {
+				includeInlayParameterNameHints = 'all',
+				includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+				includeInlayFunctionParameterTypeHints = true,
+				includeInlayVariableTypeHints = true,
+				includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+				includeInlayPropertyDeclarationTypeHints = true,
+				includeInlayFunctionLikeReturnTypeHints = true,
+				includeInlayEnumMemberValueHints = true,
+			}
+		}
+	},
 	lua_ls = {
 		Lua = {
 			workspace = { checkThirdParty = false },
 			telemetry = { enable = false },
+			hint = { enable = true },
 		},
 	},
 }

@@ -3,8 +3,8 @@ vim.o.hlsearch = false
 -- Make line numbers default
 vim.wo.number = true
 vim.wo.rnu = true
-vim.wo.so = 30
-vim.wo.siso = 20
+vim.wo.so = 10
+vim.wo.siso = 10
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -42,7 +42,7 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 
 vim.opt.path:append { '**' } -- Finding files - Search down into subfolders
-vim.opt.wildignore:append { '*/node_modules/*' }
+vim.opt.wildignore:append { '*/node_modules/*', '*/.next/*' }
 
 vim.o.conceallevel = 3
 vim.o.cursorline = true

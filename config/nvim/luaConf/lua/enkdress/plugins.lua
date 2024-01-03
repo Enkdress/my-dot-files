@@ -20,7 +20,13 @@ require('lazy').setup({
 	'windwp/nvim-ts-autotag',
 	'norcalli/nvim-colorizer.lua',
 	'kyazdani42/nvim-web-devicons',
+	{
+		"nvim-tree/nvim-web-devicons",
+		enabled = true,
+		lazy = true,
+	},
 	'mg979/vim-visual-multi',
+	'lvimuser/lsp-inlayhints.nvim',
 
 	-- Detect tabstop and shiftwidth automatically
 	'tpope/vim-sleuth',
@@ -43,7 +49,11 @@ require('lazy').setup({
 		'hrsh7th/nvim-cmp',
 		dependencies = {
 			-- Snippet Engine & its associated nvim-cmp source
-			'L3MON4D3/LuaSnip',
+			{
+				"L3MON4D3/LuaSnip",
+				version = "2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+				build = "make install_jsregexp"
+			},
 			'saadparwaiz1/cmp_luasnip',
 
 			-- Adds LSP completion capabilities
@@ -55,8 +65,17 @@ require('lazy').setup({
 	},
 
 	-- Useful plugin to show you pending keybinds.
-	{ 'folke/which-key.nvim',     opts = {} },
+	{ 'folke/which-key.nvim', opts = {} },
 	{ "folke/zen-mode.nvim" },
+	-- breadcrumbs
+	{
+		"SmiteshP/nvim-navic",
+		config = function()
+			require("enkdress.breadcrumbs").setup()
+		end,
+		event = "User FileOpened",
+		enabled = true,
+	},
 
 	{ 'lewis6991/gitsigns.nvim' },
 
@@ -64,6 +83,7 @@ require('lazy').setup({
 	{ 'navarasu/onedark.nvim' },
 	{ "catppuccin/nvim",          as = "catppuccin" },
 	{ 'sainnhe/gruvbox-material', as = 'gruvbox' },
+	{ 'arcticicestudio/nord-vim', as = 'nord' },
 	{
 		'Enkdress/nordic.nvim',
 		lazy = false,
@@ -123,7 +143,7 @@ require('lazy').setup({
 		opts = {},
 		keys = {
 			{
-				"s",
+				"<leader>ss",
 				mode = { "n", "x", "o" },
 				function()
 					require("flash").jump(
@@ -139,28 +159,20 @@ require('lazy').setup({
 				desc = "Flash",
 			},
 			{
-				"S",
+				"<leader>sS",
 				mode = { "n", "o", "x" },
 				function()
 					require("flash").treesitter()
 				end,
-				desc = "Flash Treesitter",
+				desc = "Flash Treesitter ",
 			},
 			{
-				"r",
+				"<leader>sr",
 				mode = "o",
 				function()
 					require("flash").remote()
 				end,
 				desc = "Remote Flash",
-			},
-			{
-				"R",
-				mode = { "o", "x" },
-				function()
-					require("flash").treesitter_search()
-				end,
-				desc = "Flash Treesitter Search",
 			},
 			{
 				"<c-s>",

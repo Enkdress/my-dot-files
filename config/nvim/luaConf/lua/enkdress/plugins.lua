@@ -24,6 +24,12 @@ require("lazy").setup({
 	"tpope/vim-fugitive",
 	"tpope/vim-rhubarb",
 
+	{
+		"kylechui/nvim-surround",
+		version = "*", -- Use for stability; omit to use `main` branch for the latest features
+		event = "VeryLazy",
+	},
+
 	"windwp/nvim-ts-autotag",
 	"norcalli/nvim-colorizer.lua",
 	{

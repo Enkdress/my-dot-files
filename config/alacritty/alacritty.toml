@@ -8,20 +8,20 @@ draw_bold_text_with_bright_colors = true
 size = 12
 
 [font.bold]
-family = "Operator Mono"
+family = "OperatorMono Nerd Font"
 style = "Book Bold"
 
 [font.bold_italic]
-family = "Operator Mono"
+family = "OperatorMono Nerd Font"
 style = "Bold Italic"
 
 [font.italic]
-family = "Operator Mono"
+family = "OperatorMono Nerd Font"
 style = "Book Italic"
 
 [font.normal]
-family = "Operator Mono"
-style = "Book"
+family = "FiraCode Nerd Font"
+style = "Regular"
 
 [font.offset]
 x = 1
@@ -46,5 +46,5 @@ x = 20
 y = 10
 
 [window.dimensions]
-columns = 240
-lines = 80
+columns = 190
+lines = 50

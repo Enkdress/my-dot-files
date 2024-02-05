@@ -19,7 +19,6 @@ require('lazy').setup({
 
 	'windwp/nvim-ts-autotag',
 	'norcalli/nvim-colorizer.lua',
-	'kyazdani42/nvim-web-devicons',
 	{
 		"nvim-tree/nvim-web-devicons",
 		enabled = true,
@@ -130,13 +129,6 @@ require('lazy').setup({
 			pcall(require('nvim-treesitter.install').update { with_sync = true })
 		end,
 	},
-
-	{
-		"nvim-neorg/neorg",
-		build = ":Neorg sync-parsers",
-		dependencies = { { "nvim-lua/plenary.nvim" }, { "nvim-neorg/neorg-telescope" } },
-	},
-
 	{
 		"folke/flash.nvim",
 		event = "VeryLazy",

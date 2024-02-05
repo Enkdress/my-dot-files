@@ -13,9 +13,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-	{ 
-		'lewis6991/gitsigns.nvim', 
-		config = function() 
+	{
+		'lewis6991/gitsigns.nvim',
+		config = function()
 			require("enkdress.gitsigns").setup()
 		end,
 		event = "BufEnter",
@@ -43,9 +43,16 @@ require('lazy').setup({
 			-- Automatically install LSPs to stdpath for neovim
 			'williamboman/mason.nvim',
 			'williamboman/mason-lspconfig.nvim',
+			'mhartington/formatter.nvim',
 
 			-- Additional lua configuration, makes nvim stuff amazing!
 			'folke/neodev.nvim',
+		},
+	},
+	{
+		'rcarriga/nvim-dap-ui',
+		dependencies = {
+			'mfussenegger/nvim-dap'
 		},
 	},
 

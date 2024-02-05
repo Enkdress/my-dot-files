@@ -43,9 +43,9 @@ local on_attach = function(client, bufnr)
 	end, '[W]orkspace [L]ist Folders')
 
 	-- Create a command `:Format` local to the LSP buffer
-	vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-		vim.lsp.buf.format()
-	end, { desc = 'Format current buffer with LSP' })
+	-- vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
+	-- 	vim.lsp.buf.format()
+	-- end, { desc = 'Format current buffer with LSP' })
 end
 
 -- Enable the following language servers
@@ -55,15 +55,22 @@ end
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
 	-- clangd = {},
-	-- gopls = {},
+	gopls = {},
 	pyright = {},
 	rust_analyzer = {},
 	tsserver = {},
-	lua_ls = {},
+	lua_ls = {
+		Lua = {
+			completion = {
+				callSnippet = "Replace"
+			}
+		}
+	},
 }
 
 -- Setup neovim lua configuration
 require('neodev').setup()
+require("mason").setup()
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -81,6 +88,7 @@ mason_lspconfig.setup_handlers {
 		}
 	end,
 }
+
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
 local cmp = require 'cmp'

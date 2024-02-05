@@ -13,9 +13,16 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
+	{ 
+		'lewis6991/gitsigns.nvim', 
+		config = function() 
+			require("enkdress.gitsigns").setup()
+		end,
+		event = "BufEnter",
+		cmd = "Gitsigns"
+	},
 	'tpope/vim-fugitive',
 	'tpope/vim-rhubarb',
-	'nvim-treesitter/nvim-treesitter-context',
 
 	'windwp/nvim-ts-autotag',
 	'norcalli/nvim-colorizer.lua',
@@ -25,7 +32,6 @@ require('lazy').setup({
 		lazy = true,
 	},
 	'mg979/vim-visual-multi',
-	'lvimuser/lsp-inlayhints.nvim',
 
 	-- Detect tabstop and shiftwidth automatically
 	'tpope/vim-sleuth',
@@ -76,8 +82,6 @@ require('lazy').setup({
 		enabled = true,
 	},
 
-	{ 'lewis6991/gitsigns.nvim' },
-
 	{ 'rose-pine/neovim',         name = 'rose-pine' },
 	{ 'navarasu/onedark.nvim' },
 	{ "catppuccin/nvim",          as = "catppuccin" },
@@ -92,10 +96,8 @@ require('lazy').setup({
 	{ 'nvim-lualine/lualine.nvim' },
 	{
 		'lukas-reineke/indent-blankline.nvim',
-		opts = {
-			char = '┊',
-			show_trailing_blankline_indent = false,
-		},
+		main = 'ibl',
+		opts = {},
 	},
 
 	-- "gc" to comment visual regions/lines

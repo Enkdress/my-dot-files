@@ -58,39 +58,8 @@ local servers = {
 	-- gopls = {},
 	pyright = {},
 	rust_analyzer = {},
-	tsserver = {
-		typescript = {
-			inlayHints = {
-				includeInlayParameterNameHints = 'all',
-				includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-				includeInlayFunctionParameterTypeHints = true,
-				includeInlayVariableTypeHints = false,
-				includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-				includeInlayPropertyDeclarationTypeHints = true,
-				includeInlayFunctionLikeReturnTypeHints = false,
-				includeInlayEnumMemberValueHints = true,
-			}
-		},
-		javascript = {
-			inlayHints = {
-				includeInlayParameterNameHints = 'all',
-				includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-				includeInlayFunctionParameterTypeHints = true,
-				includeInlayVariableTypeHints = true,
-				includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-				includeInlayPropertyDeclarationTypeHints = true,
-				includeInlayFunctionLikeReturnTypeHints = true,
-				includeInlayEnumMemberValueHints = true,
-			}
-		}
-	},
-	lua_ls = {
-		Lua = {
-			workspace = { checkThirdParty = false },
-			telemetry = { enable = false },
-			hint = { enable = true },
-		},
-	},
+	tsserver = {},
+	lua_ls = {},
 }
 
 -- Setup neovim lua configuration

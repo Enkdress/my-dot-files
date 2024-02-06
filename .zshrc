@@ -51,6 +51,8 @@ export PATH="/usr/local/opt/libpq/bin:$PATH"
 ### SETTING THE STARSHIP PROMPT ###
 eval "$(starship init zsh)"
 
+## ssh-add --apple-use-keychain ~/.ssh/id_ed25519 
+
 # bun completions
 [ -s "/Users/sergio.correa/.bun/_bun" ] && source "/Users/sergio.correa/.bun/_bun"
 

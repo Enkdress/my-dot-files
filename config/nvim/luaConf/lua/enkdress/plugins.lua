@@ -129,6 +129,11 @@ require("lazy").setup({
 	},
 
 	{
+		"f-person/git-blame.nvim",
+		event = "VeryLazy",
+	},
+
+	{
 		-- Highlight, edit, and navigate code
 		"nvim-treesitter/nvim-treesitter",
 		dependencies = {

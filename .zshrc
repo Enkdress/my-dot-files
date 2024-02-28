@@ -47,6 +47,7 @@ source $HOME/.dotFiles/aliases.zsh
 ## Env Variables
 source $HOME/.dotFiles/enviroment-variables/init.zsh
 export PATH="/usr/local/opt/libpq/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 
 ### SETTING THE STARSHIP PROMPT ###
 eval "$(starship init zsh)"

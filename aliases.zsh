@@ -54,3 +54,5 @@ alias i3conf="v ~/.dotFiles/.config/i3/config"
 alias es="setxkbmap -layout latam"
 alias us="setxkbmap -layout en"
 
+alias ts="tmux-sessionizer"
+

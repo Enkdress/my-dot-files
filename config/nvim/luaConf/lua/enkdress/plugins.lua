@@ -41,6 +41,7 @@ require("lazy").setup({
 
 	-- Detect tabstop and shiftwidth automatically
 	"tpope/vim-sleuth",
+	"folke/lsp-colors.nvim",
 
 	{
 		-- LSP Configuration & Plugins
@@ -92,6 +93,8 @@ require("lazy").setup({
 	{ "navarasu/onedark.nvim" },
 	{ "catppuccin/nvim", as = "catppuccin" },
 	{ "sainnhe/gruvbox-material", as = "gruvbox" },
+	{ "rebelot/kanagawa.nvim", as = "kanagawa" },
+	{ "dasupradyumna/midnight.nvim", as = "midnight" },
 	{ "arcticicestudio/nord-vim", as = "nord" },
 	{
 		"Enkdress/nordic.nvim",
@@ -131,6 +134,21 @@ require("lazy").setup({
 	{
 		"f-person/git-blame.nvim",
 		event = "VeryLazy",
+	},
+
+	{
+		"ray-x/go.nvim",
+		dependencies = { -- optional packages
+			"ray-x/guihua.lua",
+			"neovim/nvim-lspconfig",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		config = function()
+			require("go").setup()
+		end,
+		event = { "CmdlineEnter" },
+		ft = { "go", "gomod" },
+		build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
 	},
 
 	{

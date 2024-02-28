@@ -1,7 +1,7 @@
-local nordic = require('nordic')
-local M = require 'enkdress.utils'
+local nordic = require("nordic")
+local M = require("enkdress.utils")
 
-nordic.setup {
+nordic.setup({
 	override = {
 		Normal = {
 			bg = M.palette.black,
@@ -10,10 +10,10 @@ nordic.setup {
 			bg = M.palette.black,
 		},
 		NormalFloat = {
-			bg = M.palette.gray3
+			bg = M.palette.gray3,
 		},
 		Visual = {
-			bg = M.palette.gray3
+			bg = M.palette.gray3,
 		},
 		TelescopeResultsBorder = { fg = M.palette.orange.base },
 		TelescopePromptBorder = { fg = M.palette.orange.base },
@@ -25,14 +25,14 @@ nordic.setup {
 	telescope = {
 		style = "flat",
 	},
-}
+})
 
-vim.cmd [[
-        silent! colorscheme gruvbox-material
-]]
+vim.cmd([[
+        silent! colorscheme rose-pine
+]])
 
-vim.cmd [[
-  hi! link @text.uri Constant
-  hi! link @text.emphasis Macro
-  hi! link @operator NonText
-]]
+-- vim.cmd([[
+--   hi! link @text.uri Constant
+--   hi! link @text.emphasis Macro
+--   hi! link @operator NonText
+-- ]])

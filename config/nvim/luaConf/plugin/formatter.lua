@@ -1,8 +1,8 @@
 -- Utilities for creating configurations
-local util = require "formatter.util"
+local util = require("formatter.util")
 
 -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
-require("formatter").setup {
+require("formatter").setup({
 	logging = true,
 	log_level = vim.log.levels.DEBUG,
 	filetype = {
@@ -29,19 +29,25 @@ require("formatter").setup {
 					},
 					stdin = true,
 				}
-			end
+			end,
 		},
 		typescript = {
-			require("formatter.filetypes.typescript").prettier
+			require("formatter.filetypes.typescript").prettier,
 		},
 		typescriptreact = {
-			require("formatter.filetypes.typescriptreact").prettier
+			require("formatter.filetypes.typescriptreact").prettier,
 		},
 		javascript = {
-			require("formatter.filetypes.javascript").prettier
+			require("formatter.filetypes.javascript").prettier,
 		},
 		javascriptreact = {
-			require("formatter.filetypes.javascriptreact").prettier
+			require("formatter.filetypes.javascriptreact").prettier,
 		},
-	}
-}
+		go = {
+			require("formatter.filetypes.go").gofmt,
+		},
+		graphql = {
+			require("formatter.filetypes.graphql").prettier,
+		},
+	},
+})

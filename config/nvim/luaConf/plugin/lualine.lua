@@ -1,3 +1,7 @@
+vim.cmd([[
+        silent! colorscheme rose-pine
+]])
+
 local icons = require("enkdress.icons")
 
 local window_width_limit = 100
@@ -22,6 +26,7 @@ local colors = {
 }
 
 local function diff_source()
+	---@diagnostic disable-next-line: undefined-field
 	local gitsigns = vim.b.gitsigns_status_dict
 	if gitsigns then
 		return {
@@ -113,10 +118,6 @@ local components = {
 			if #buf_clients == 0 then
 				return "LSP Inactive"
 			end
-
-			local buf_ft = vim.bo.filetype
-			local buf_client_names = {}
-			local copilot_active = false
 		end,
 		color = { gui = "bold" },
 		cond = hide_in_width,
@@ -129,7 +130,6 @@ local components = {
 		end,
 		color = {},
 	},
-
 	spaces = {
 		function()
 			local sw = vim.bo.shiftwidth
@@ -204,15 +204,16 @@ require("lualine").setup({
 			components.progress,
 		},
 		options = {
-			icons_enabled = true,
-			-- theme = 'nordic',
+			icons_enabled = { true },
+			globalstatus = { true },
+			-- theme = "nordic",
 			-- theme = 'nord',
 			-- theme = "rose-pine",
 			-- theme = "habamax",
-			theme = "midnight",
-			-- theme = "gruvbox-material",
-			component_separators = icons.ui.BoldLineLeft,
-			section_separators = icons.ui.BoldLineLeft,
+			-- theme = "midnight",
+			-- theme= "gruvbox-material",
+			component_separators = { icons.ui.BoldLineLeft },
+			section_separators = { icons.ui.BoldLineLeft },
 		},
 	},
 })

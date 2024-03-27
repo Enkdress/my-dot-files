@@ -27,9 +27,9 @@ nordic.setup({
 	},
 })
 
-vim.cmd([[
-        silent! colorscheme rose-pine
-]])
+-- vim.cmd([[
+--         silent! colorscheme rose-pine
+-- ]])
 
 -- vim.cmd([[
 --   hi! link @text.uri Constant

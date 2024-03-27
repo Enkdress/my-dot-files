@@ -78,7 +78,7 @@ require("lazy").setup({
 
 	-- Useful plugin to show you pending keybinds.
 	{ "folke/which-key.nvim", opts = {} },
-	{ "folke/zen-mode.nvim" },
+
 	-- breadcrumbs
 	{
 		"SmiteshP/nvim-navic",
@@ -172,9 +172,7 @@ require("lazy").setup({
 				function()
 					require("flash").jump({
 						search = {
-							mode = function(str)
-								return "\\<" .. str
-							end,
+							mode = "search",
 						},
 					})
 				end,
@@ -196,14 +194,7 @@ require("lazy").setup({
 				end,
 				desc = "Remote Flash",
 			},
-			{
-				"<c-s>",
-				mode = { "c" },
-				function()
-					require("flash").toggle()
-				end,
-				desc = "Toggle Flash Search",
-			},
 		},
 	},
+	{ import = "custom.plugins" },
 }, {})

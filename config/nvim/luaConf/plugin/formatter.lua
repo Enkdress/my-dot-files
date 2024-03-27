@@ -46,6 +46,12 @@ require("formatter").setup({
 		go = {
 			require("formatter.filetypes.go").gofmt,
 		},
+		json = {
+			require("formatter.filetypes.json").prettier,
+		},
+		jsonc = {
+			require("formatter.filetypes.json").prettier,
+		},
 		graphql = {
 			require("formatter.filetypes.graphql").prettier,
 		},

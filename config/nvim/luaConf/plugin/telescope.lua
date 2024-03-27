@@ -23,7 +23,7 @@ require("telescope").setup({
 		color_devicons = true,
 		file_previewer = require("telescope.previewers").cat.new,
 		layout_config = {
-			preview_width = 0.6,
+			preview_width = 0.5,
 		},
 		mappings = {
 			i = {
@@ -129,7 +129,7 @@ end, { desc = "[T]mux [S]essions" })
 vim.keymap.set("n", "<leader>/", function()
 	-- You can pass additional configuration to telescope to change theme, layout, etc.
 	require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-		winblend = 10,
+		winblend = 15,
 		previewer = false,
 	}))
 end, { desc = "[/] Fuzzily search in current buffer" })

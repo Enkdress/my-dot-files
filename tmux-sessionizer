@@ -1,19 +1,39 @@
 #!/usr/bin/env bash
 
-options="o"
-
-while getopts "$options" opt; do
-    case $opt in
-        o)
-            selected=$(tmux list-sessions -F\#S | fzf)
-            ;;
-        ?)
-            selected=$(find ~/.dotFiles ~/.dotFiles/config ~/Documents/Encora ~/Documents/Personal ~/Documents/Uni  -mindepth 1 -maxdepth 1 -type d | fzf)
-            ;;
+usage() {
+ echo "Usage: $0 [OPTIONS]"
+ echo "Options:"
+ echo " -h, --help              Display this help message"
+ echo " -o, --opened-sessions   Show only the opened sessions"
+ echo " -a, --all-projects      Show all the projects available"
+}
+selected=""
+handle_options() {
+  while [ $# -gt 0 ]; do
+    case $1 in
+      -h | --help)
+        usage
+        exit 0
+        ;;
+      -o | --opened-session)
+        selected=$(tmux list-sessions -F\#S | fzf)
+        shift
+        ;;
+      -a | --all-projects)
+        selected=$(find ~/.dotFiles ~/.dotFiles/config ~/Documents/Encora ~/Documents/Personal ~/Documents/Uni  -mindepth 1 -maxdepth 1 -type d | fzf)
+        shift
+        ;;
+      *)
+        echo "Invalid option: $1" >&2
+        usage
+        exit 1
+        ;;
     esac
-done
+    shift
+  done
+}
 
-shift $((OPTIND-1))
+handle_options "$@"
 
 if [[ -z $selected ]]; then
     exit 0

@@ -1,10 +1,19 @@
 #!/usr/bin/env bash
 
-if [[ $# -eq 1 ]]; then
-    selected=$1
-else
-    selected=$(find ~/.dotFiles ~/.dotFiles/config ~/Documents/Encora ~/Documents/Personal ~/Documents/Uni  -mindepth 1 -maxdepth 1 -type d | fzf)
-fi
+options="o"
+
+while getopts "$options" opt; do
+    case $opt in
+        o)
+            selected=$(tmux list-sessions -F\#S | fzf)
+            ;;
+        ?)
+            selected=$(find ~/.dotFiles ~/.dotFiles/config ~/Documents/Encora ~/Documents/Personal ~/Documents/Uni  -mindepth 1 -maxdepth 1 -type d | fzf)
+            ;;
+    esac
+done
+
+shift $((OPTIND-1))
 
 if [[ -z $selected ]]; then
     exit 0

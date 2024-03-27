@@ -36,6 +36,9 @@ require("telescope").setup({
 		},
 	},
 	extensions = {
+		["tmux"] = {
+			require("telescope.themes").get_dropdown(),
+		},
 		fzy_native = {
 			override_generic_sorter = false,
 			override_file_sorter = true,
@@ -83,6 +86,7 @@ end
 
 -- Enable telescope fzf native, if installed
 pcall(require("telescope").load_extension, "fzf")
+pcall(require("telescope").load_extension, "tmux")
 pcall(require("telescope").load_extension, "file_browser")
 local fb_actions = require("telescope._extensions.file_browser.actions")
 
@@ -117,7 +121,7 @@ vim.keymap.set("n", "sf", function()
 end, { desc = "[S]earch [F]iles" })
 
 vim.keymap.set("n", "<leader>ts", function()
-	require("telescope.builtin").find_files(require("telescope.themes").get_ivy(my_ivy_options))
+	require("telescope").extensions.tmux.sessions(require("telescope.themes").get_ivy(my_ivy_options))
 end, { desc = "[T]mux [S]essions" })
 
 vim.keymap.set("n", "<leader>/", function()

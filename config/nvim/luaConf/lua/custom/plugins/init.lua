@@ -1,3 +1,3 @@
 return {
-	"../../../../tmux_plugin",
+	"Enkdress/tmux_extension",
 }

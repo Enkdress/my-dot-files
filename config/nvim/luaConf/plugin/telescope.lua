@@ -121,7 +121,9 @@ vim.keymap.set("n", "sf", function()
 end, { desc = "[S]earch [F]iles" })
 
 vim.keymap.set("n", "<leader>ts", function()
-	require("telescope").extensions.tmux.sessions(require("telescope.themes").get_ivy(my_ivy_options))
+	require("telescope").extensions.tmux.sessions(
+		require("telescope.themes").get_dropdown({ winblend = 15, previewer = false })
+	)
 end, { desc = "[T]mux [S]essions" })
 
 vim.keymap.set("n", "<leader>/", function()

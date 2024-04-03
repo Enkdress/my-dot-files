@@ -32,7 +32,7 @@ Now install Oh my zsh, is a framework where we can add plugins and make pretty o
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-## Adding our custom config
+## Adding custom zsh config
 Once you installed Oh My Zsh you will find a file with the name of `.zsh` in the home directory... remove it! 😂,
 we will create a symlink to ours just run next command and restart your terminal:
 ```bash
@@ -54,6 +54,10 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/
 
 ## Installing tools
 I use some CLI tools like `exa`, `bat`, `fzf`, `rd`, `fg`
+
+
+---
+
 
 ## Neovim
 The first thing to do here is install the latest stable version of neovim, you can do that by copying the following command: 
@@ -99,6 +103,29 @@ By now you should be seeing all the plugins being installed with some errors (ma
 the error is saying trying to fix it. [Link](https://github.com/Enkdress/my-dot-files/edit/master/KNOWN_ERRORS.md) to a document with possible errors you can see.
 
 
+---
+
+
+## TMUX
+First you have to install the package so use your SO package manager to install tmux.
+
+Ubuntu
+```bash
+sudo apt install tmux
+```
+Macos
+```bash
+brew install tmux
+```
+
+This configuration is easy you just copy and paste the following commands:
+
+```bash
+ls -s ~/.dotFiles/tmux.conf ~/.tmux.conf
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+Open `tmux` and intall the plugins using `<C-w>+I` sequence and you are ready to go.
 
 
 

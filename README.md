@@ -11,7 +11,7 @@ Go to github and open the settings page, select the `SSH and GPG keys` option an
 
 ## Clone this repo in your local machine
 ```bash
-git clone https://github.com/Enkdress/my-dot-files.git ~/.dotFiles
+git clone git@github.com:Enkdress/my-dot-files.git ~/.dotFiles
 ```
 ## Install zsh and omzsh
 In my case I use zsh you can use fish or whatever shell you like. To install zsh:

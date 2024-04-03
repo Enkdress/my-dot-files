@@ -131,7 +131,72 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 Open `tmux` and intall the plugins using `<C-w>+I` sequence and you are ready to go.
 
 
+---
 
+
+## Installing Node js
+There are multiple ways to install node js but the one I prefer is to use a version manager
+for node, I recommend using one of these [volta](https://docs.volta.sh/guide/getting-started) or [nvm](https://github.com/nvm-sh/nvm)
+
+### Volta
+You can install volta with the following command.
+```bash
+curl https://get.volta.sh | bash
+```
+Once you have volta installed you can install the node version you want, in this case I'll be using
+the `v20.11.0`
+
+```bash
+volta install node@20.11.0
+```
+
+### NVM
+You can go to their github page linked above and follow the installation process, but here are
+some quick commands:
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+```
+
+To install node using nvm you just have to `nvm install node@20.11.0`
+
+
+If you are using the `.zshrc` file in this repo you don't have to worry about the variables. But in case
+you aren't using this `.zshrc` you will need to add the following variables to your `.zshrc`.
+
+For Volta:
+```bash
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+export VOLTA_FEATURE_PNPM=1
+```
+
+For NVM:
+```bash
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+```
+
+## Node global packages
+```bash
+npm i -g typescript neovim pnpm yarn tailwindcss-language-server tree-sitter
+```
+
+## Python packages
+
+First thing you need to do is to install `pip` follow this section to do it:
+```bash
+curl https://bootstrap.pypa.io/get-pip.py >> ~/get-pip-py
+python3 ~/get-pip-py
+rm -rf ~/get-pip-py
+```
+
+Now you can restart your terminal and it should be in installed. If there is an
+error saying that you don't have it then you need to add the `~/.local/bin` in your $PATH.
+
+### Python global packages
+```bash
+pip3 install neovim
+```
 
 
 ---

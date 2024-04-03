@@ -92,10 +92,10 @@ require("lazy").setup({
 	{ "rose-pine/neovim", name = "rose-pine" },
 	{ "navarasu/onedark.nvim" },
 	{ "catppuccin/nvim", as = "catppuccin" },
-	{ "sainnhe/gruvbox-material", as = "gruvbox" },
-	{ "rebelot/kanagawa.nvim", as = "kanagawa" },
-	{ "dasupradyumna/midnight.nvim", as = "midnight" },
-	{ "arcticicestudio/nord-vim", as = "nord" },
+	{ "sainnhe/gruvbox-material" },
+	{ "rebelot/kanagawa.nvim" },
+	{ "dasupradyumna/midnight.nvim" },
+	{ "arcticicestudio/nord-vim" },
 	{
 		"Enkdress/nordic.nvim",
 		lazy = false,
@@ -121,7 +121,7 @@ require("lazy").setup({
 		},
 	},
 	{ "nvim-telescope/telescope-file-browser.nvim" },
-	{ "ThePrimeagen/harpoon", depedencies = { "nvim-lua/plenary.nvim" } },
+	{ "ThePrimeagen/harpoon" },
 
 	{
 		"nvim-telescope/telescope-fzf-native.nvim",

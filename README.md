@@ -91,8 +91,8 @@ sudo mv nvim.appimage /usr/local/bin/nvim
 
 In case you went through the error you can do the following:
 ```bash
-sudo mv path/to/squashfs-root /tmp/squashfs
-sudo ln -s /tmp/squashfs/usr/bin/nvim /usr/bin/nvim
+sudo mv path/to/squashfs-root /dev/squash
+sudo ln -s /dev/squash/usr/bin/nvim /usr/bin/nvim
 nvim
 ```
 

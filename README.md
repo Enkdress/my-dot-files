@@ -53,7 +53,58 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/
 ```
 
 ## Installing tools
-I use some CLI tools like exa, bat, fzf, rd, fg
+I use some CLI tools like `exa`, `bat`, `fzf`, `rd`, `fg`
+
+## Neovim
+The first thing to do here is install the latest stable version of neovim, you can do that by copying the following command: 
+```bash
+curl -LO https://github.com/neovim/neovim/releases/download/{VERSION}/nvim.appimage
+chmod u+x nvim.appimage
+./nvim.appimage
+```
+>[!NOTE]
+>If you in this section have an error like:
+>```
+>AppImages require FUSE to run.
+>You might still be able to extract the contents of this AppImage
+>if you run it with the --appimage-extract option.
+>See https://github.com/AppImage/AppImageKit/wiki/FUSE
+>for more information
+>```
+>You have run the following to fix it (Only tested in Ubuntu)
+>```bash
+>./nvim.appimage --appimage-extract
+>```
+>This will generate a folder with the image, you can `./squashfs-root/usr/bin/nvim` to open neovim
+
+If you went through the last step without any error you can do the following to have the bin globally in your terminal:
+```bash
+sudo mv nvim.appimage /usr/local/bin/nvim
+```
+
+In case you went through the error you can do the following:
+```bash
+sudo mv path/to/squashfs-root /tmp/squashfs
+sudo ln -s /tmp/squashfs/usr/bin/nvim /usr/bin/nvim
+nvim
+```
+
+## Adding my neovim configuration
+We will use the `~/.config` folder, so in case you don't have it create it with `mkdir ~/.config`.
+Now we can start creating the link:
+```bash
+ln -s ~/.dotFiles/config/nvim/luaConf ~/.config/nvim
+```
+By now you should be seeing all the plugins being installed with some errors (maybe)... So depending on what 
+the error is saying trying to fix it. [Link](https://github.com/Enkdress/my-dot-files/edit/master/KNOWN_ERRORS.md) to a document with possible errors you can see.
+
+
+
+
+
+
+
+---
 
 # My nvim configuration
 <br/><br/>

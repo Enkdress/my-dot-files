@@ -198,4 +198,7 @@ error saying that you don't have it then you need to add the `~/.local/bin` in y
 pip3 install neovim
 ```
 
+## Installation of Golang
+Just follow their installation [guide](https://go.dev/doc/install)
+
 

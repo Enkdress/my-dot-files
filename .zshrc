@@ -40,6 +40,7 @@ plugins=(
 # Sourcing oh-my-zsh
 # Your plugins will not work without this source.
 source $ZSH/oh-my-zsh.sh
+export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 
 ### ALIASES ###
 source $HOME/.dotFiles/aliases.zsh

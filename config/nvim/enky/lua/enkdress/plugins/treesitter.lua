@@ -1,8 +1,11 @@
 return {
 	{
+		"nvim-treesitter/nvim-treesitter-textobjects",
+	},
+	{
 		"nvim-treesitter/nvim-treesitter",
 		dependencies = {
-			"nvim-treesitter/nvim-treesitter-textobjects",
+			"vrischmann/tree-sitter-templ",
 		},
 		build = ":TSUpdate",
 		branch = "main",
@@ -17,6 +20,9 @@ return {
 			local syntax_on = {
 				typescript = true,
 				javascript = true,
+				templ = true,
+				python = true,
+				lua = true,
 				go = true,
 			}
 

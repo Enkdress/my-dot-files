@@ -24,25 +24,40 @@ return {
 		local lspconfig = require("lspconfig")
 
 		local servers = {
-			bashls = true,
-
 			gopls = true,
-
 			pyright = true,
 			lua_ls = true,
-			rust_analyzer = true,
-			svelte = true,
 			templ = true,
 			html = true,
 			htmx = true,
 			cssls = true,
-			tsserver = true,
+			tsserver = {
+				settings = {
+					javascript = {
+						inlayHints = {
+							includeInlayEnumMemberValueHints = true,
+							includeInlayFunctionLikeReturnTypeHints = true,
+							includeInlayFunctionParameterTypeHints = true,
+							includeInlayParameterNameHints = "literals", -- 'none' | 'literals' | 'all';
+							includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+							includeInlayPropertyDeclarationTypeHints = true,
+							includeInlayVariableTypeHints = true,
+						},
+					},
+					typescript = {
+						inlayHints = {
+							includeInlayFunctionParameterTypeHints = true,
+							includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+							includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+							includeInlayPropertyDeclarationTypeHints = true,
+						},
+					},
+				},
+			},
 			eslint = true,
-
 			tailwindcss = {
 				userLanguages = { templ = "html" },
 			},
-
 			jsonls = {
 				settings = {
 					json = {
@@ -51,7 +66,6 @@ return {
 					},
 				},
 			},
-
 			yamlls = {
 				settings = {
 					yaml = {

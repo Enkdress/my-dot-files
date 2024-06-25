@@ -47,7 +47,10 @@ return {
 						{ "i", "c" }
 					),
 				},
-
+				window = {
+					completion = cmp.config.window.bordered(),
+					documentation = cmp.config.window.bordered(),
+				},
 				-- Enable luasnip to handle snippet expansion for nvim-cmp
 				snippet = {
 					expand = function(args)

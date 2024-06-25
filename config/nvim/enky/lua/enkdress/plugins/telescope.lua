@@ -4,6 +4,7 @@ return {
 		version = "*",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter.nvim",
 		},
 		config = function()
 			local action_layout = require("telescope.actions.layout")

@@ -77,5 +77,10 @@ end
 -- Set the colorscheme
 vim.cmd.colorscheme(pick_random_scheme())
 
+if vim.lsp.inlay_hint then
+	vim.keymap.set("n", "<leader>uh", function()
+		vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+	end)
+end
 -- vim.cmd.colorscheme("rose-pine")
 -- vim.cmd.colorscheme("kanagawa-dragon")

@@ -5,6 +5,7 @@ return {
 			require("mini.ai").setup()
 			require("mini.pairs").setup()
 			require("mini.cursorword").setup()
+			require("mini.comment").setup()
 
 			require("mini.indentscope").setup()
 			local hipatterns = require("mini.hipatterns")

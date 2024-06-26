@@ -1,4 +1,4 @@
-vim.keymap.set("n", "<leader>f", ":Format<CR>", { silent = true, desc = "Format document" })
+vim.keymap.set("n", "\"f", ":Format<CR>", { silent = true, desc = "Format document" })
 vim.keymap.set("n", "<leader>ls", ":so ~/.config/nvim/init.lua<CR>", { silent = true, desc = "Load configuration" })
 
 -- Buffer movement

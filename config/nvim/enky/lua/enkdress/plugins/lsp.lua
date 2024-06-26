@@ -31,6 +31,7 @@ return {
 			html = true,
 			htmx = true,
 			cssls = true,
+			eslint = true,
 			tsserver = {
 				settings = {
 					javascript = {
@@ -54,7 +55,6 @@ return {
 					},
 				},
 			},
-			eslint = true,
 			tailwindcss = {
 				userLanguages = { templ = "html" },
 			},
@@ -95,6 +95,7 @@ return {
 			"lua_ls",
 			"typescript-language-server",
 			"tailwindcss",
+			"gopls",
 			"jsonls",
 		}
 
@@ -193,8 +194,6 @@ return {
 					end
 					require("conform").format({ async = true, lsp_fallback = true, range = range })
 				end, { range = true })
-
-				vim.keymap.set("n", "<leader>f", ":Format<CR>", { silent = true, desc = "Format document" })
 			end,
 		})
 	end,

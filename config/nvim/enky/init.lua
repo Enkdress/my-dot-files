@@ -27,19 +27,17 @@ local function check_fav_schemas(color_name)
 	local is_fav = false
 	local fav_colorschemes = {
 		"ayu",
-		"rose-pine",
-		"catppuccin",
+		"rose-pine-main",
+		"catppuccin-mocha",
+		"onedark_dark",
 		"tokyonight-night",
 		"gruvbox-minor",
-		"habamax",
-		"minicyan",
-		"base16-schemer-dark",
-		"base16-atelier-savanna",
-		"base16-atelier-lakeside",
-		"base16-atelier-plateau",
-		"base16-black-metal-bathory",
-		"base16-ia-dark",
-		"base16-kimber",
+		"kanagawa-dragon",
+		-- "base16-schemer-dark",
+		-- "base16-atelier-savanna",
+		-- "base16-black-metal-bathory",
+		-- "base16-ia-dark",
+		-- "base16-kimber",
 	}
 
 	for _, color in pairs(fav_colorschemes) do

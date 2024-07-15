@@ -32,7 +32,7 @@ return {
 			htmx = true,
 			cssls = true,
 			eslint = true,
-			tsserver = {
+			vtsls = {
 				settings = {
 					javascript = {
 						inlayHints = {
@@ -55,6 +55,29 @@ return {
 					},
 				},
 			},
+			-- tsserver = {
+			-- 	settings = {
+			-- 		javascript = {
+			-- 			inlayHints = {
+			-- 				includeInlayEnumMemberValueHints = true,
+			-- 				includeInlayFunctionLikeReturnTypeHints = true,
+			-- 				includeInlayFunctionParameterTypeHints = true,
+			-- 				includeInlayParameterNameHints = "literals", -- 'none' | 'literals' | 'all';
+			-- 				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+			-- 				includeInlayPropertyDeclarationTypeHints = true,
+			-- 				includeInlayVariableTypeHints = true,
+			-- 			},
+			-- 		},
+			-- 		typescript = {
+			-- 			inlayHints = {
+			-- 				includeInlayFunctionParameterTypeHints = true,
+			-- 				includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+			-- 				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+			-- 				includeInlayPropertyDeclarationTypeHints = true,
+			-- 			},
+			-- 		},
+			-- 	},
+			-- },
 			tailwindcss = {
 				userLanguages = { templ = "html" },
 			},
@@ -146,15 +169,25 @@ return {
 				nmap("<space>cr", vim.lsp.buf.rename)
 				nmap("<space>ca", vim.lsp.buf.code_action)
 
+				-- Hover and Signature Documentation UI
+				vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+					border = "rounded",
+				})
+
+				vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+					border = "rounded",
+				})
+
 				vim.diagnostic.config({
 					virtual_text = {
 						severity = { min = vim.diagnostic.severity.WARN },
 						prefix = "●",
 					},
-					update_in_insert = true,
+					updade_in_insert = false,
 					underline = { severity = { max = vim.diagnostic.severity.INFO } },
 					float = {
 						source = "always", -- Or "if_many"
+						border = "rounded",
 					},
 				})
 

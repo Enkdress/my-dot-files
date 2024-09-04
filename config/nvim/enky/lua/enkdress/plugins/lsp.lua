@@ -24,6 +24,7 @@ return {
 		local lspconfig = require("lspconfig")
 
 		local servers = {
+			clojure_lsp = true,
 			gopls = true,
 			pyright = true,
 			lua_ls = true,
@@ -55,29 +56,6 @@ return {
 					},
 				},
 			},
-			-- tsserver = {
-			-- 	settings = {
-			-- 		javascript = {
-			-- 			inlayHints = {
-			-- 				includeInlayEnumMemberValueHints = true,
-			-- 				includeInlayFunctionLikeReturnTypeHints = true,
-			-- 				includeInlayFunctionParameterTypeHints = true,
-			-- 				includeInlayParameterNameHints = "literals", -- 'none' | 'literals' | 'all';
-			-- 				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-			-- 				includeInlayPropertyDeclarationTypeHints = true,
-			-- 				includeInlayVariableTypeHints = true,
-			-- 			},
-			-- 		},
-			-- 		typescript = {
-			-- 			inlayHints = {
-			-- 				includeInlayFunctionParameterTypeHints = true,
-			-- 				includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
-			-- 				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-			-- 				includeInlayPropertyDeclarationTypeHints = true,
-			-- 			},
-			-- 		},
-			-- 	},
-			-- },
 			tailwindcss = {
 				userLanguages = { templ = "html" },
 			},
@@ -120,6 +98,7 @@ return {
 			"tailwindcss",
 			"gopls",
 			"jsonls",
+			"clojure_lsp",
 		}
 
 		vim.list_extend(ensure_installed, servers_to_install)
@@ -211,6 +190,7 @@ return {
 						typescriptreact = { "prettier" },
 						go = { "gofmt" },
 						graphql = { "prettier" },
+						clojure = { "cljfmt" },
 					},
 					log_level = vim.log.levels.DEBUG,
 				})

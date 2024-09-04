@@ -13,6 +13,8 @@ return {
 			"hrsh7th/cmp-buffer",
 			{ "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
 			"saadparwaiz1/cmp_luasnip",
+			"PaterJason/cmp-conjure",
+			"lamp/cmp-iced",
 		},
 		config = function()
 			local lspkind = require("lspkind")
@@ -34,6 +36,8 @@ return {
 					{ name = "nvim_lsp" },
 					{ name = "path" },
 					{ name = "buffer" },
+					{ name = "conjure" },
+					{ name = "iced" },
 				},
 				mapping = {
 					["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),

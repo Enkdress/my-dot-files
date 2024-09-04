@@ -14,7 +14,7 @@ return {
 			local group = vim.api.nvim_create_augroup("custom-treesitter", { clear = true })
 
 			require("nvim-treesitter").setup({
-				ensure_install = "community",
+				ensure_install = { "community", "clojure" },
 			})
 
 			local syntax_on = {
@@ -24,6 +24,7 @@ return {
 				python = true,
 				lua = true,
 				go = true,
+				clojure = true,
 			}
 
 			vim.api.nvim_create_autocmd("FileType", {

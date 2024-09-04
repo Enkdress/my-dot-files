@@ -1,6 +1,7 @@
 local opt = vim.opt
 
 ----- Interesting Options -----
+opt.cursorline = true
 
 -- You have to turn this one on :)
 opt.inccommand = "split"

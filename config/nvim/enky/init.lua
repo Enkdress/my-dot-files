@@ -1,4 +1,34 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+_G.__miversen_config_excluded_filetypes_array = {
+	"lsp-installer",
+	"grug-far",
+	"lspinfo",
+	"Outline",
+	"lazy",
+	"help",
+	"packer",
+	"netrw",
+	"qf",
+	"dbui",
+	"Trouble",
+	"fugitive",
+	"floaterm",
+	"spectre_panel",
+	"spectre_panel_write",
+	"checkhealth",
+	"man",
+	"dap-repl",
+	"toggleterm",
+	"neo-tree",
+	"ImportManager",
+	"aerial",
+	"TelescopePrompt",
+	"NetmanLogs",
+	"neo-tree-popup",
+	"",
+}
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then

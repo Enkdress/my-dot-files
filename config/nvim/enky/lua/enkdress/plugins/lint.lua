@@ -11,6 +11,7 @@ return {
 				typescriptreact = { "eslint_d" },
 				javascript = { "eslint_d" },
 				javascriptreact = { "eslint_d" },
+				clojure = { "clj-kondo"},
 			}
 
 			-- To allow other plugins to add linters to require('lint').linters_by_ft,

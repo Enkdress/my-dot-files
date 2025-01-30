@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.maplocalleader = ";"
 
 _G.__miversen_config_excluded_filetypes_array = {
 	"lsp-installer",
@@ -56,13 +56,15 @@ require("lazy").setup({ import = "enkdress/plugins" }, {
 local function check_fav_schemas(color_name)
 	local is_fav = false
 	local fav_colorschemes = {
-		"ayu",
-		"rose-pine-main",
+		-- "ayu",
+		-- "rose-pine-main",
 		"catppuccin-mocha",
-		"onedark_dark",
-		"tokyonight-night",
-		"gruvbox-minor",
-		"kanagawa-dragon",
+		-- "base16-tokyodark-terminal",
+		-- "base16-gruvbox-dark-hard",
+		-- "onedark_dark",
+		-- "tokyonight-night",
+		-- "gruvbox-minor",
+		-- "kanagawa-dragon",
 		-- "base16-schemer-dark",
 		-- "base16-atelier-savanna",
 		-- "base16-black-metal-bathory",

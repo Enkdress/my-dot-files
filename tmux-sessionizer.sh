@@ -20,7 +20,7 @@ handle_options() {
         shift
         ;;
       -a | --all-projects)
-        selected=$(find ~/.dotFiles ~/.dotFiles/config ~/Documents/Encora ~/Documents/Personal ~/Documents/Uni  -mindepth 1 -maxdepth 1 -type d | fzf)
+        selected=$(find ~/.dotFiles ~/.dotFiles/config ~/dev/nu ~/Documents/Personal -mindepth 1 -maxdepth 1 -type d | fzf)
         shift
         ;;
       *)
@@ -40,6 +40,9 @@ if [[ -z $selected ]]; then
 fi
 
 selected_name=$(basename "$selected" | tr . _)
+# echo $selected_name - Only name "stadium"
+# echo $selected - The whole path "Users/../nu/stadium"
+
 tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
@@ -49,6 +52,11 @@ fi
 
 if ! tmux has-session -t=$selected_name 2> /dev/null; then
     tmux new-session -ds $selected_name -c $selected
+		tmux send-keys -t $selected_name "v ." Enter
 fi
 
-tmux switch-client -t $selected_name
+if [[ -z $TMUX ]]; then
+    tmux attach-session -t $selected_name
+else
+    tmux switch-client -t $selected_name
+fi

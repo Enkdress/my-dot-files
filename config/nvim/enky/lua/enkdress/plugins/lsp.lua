@@ -81,6 +81,16 @@ return {
 
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
+		lspconfig["sourcekit"].setup({
+			cmd = { vim.trim(vim.fn.system("xcrun -f sourcekit-lsp")) },
+			capabilities = capabilities,
+			on_init = function(client)
+				-- HACK: to fix some issues with LSP
+				-- more details: https://github.com/neovim/neovim/issues/19237#issuecomment-2237037154
+				client.offset_encoding = "utf-8"
+			end,
+		})
+
 		for name, config in pairs(servers) do
 			if config == true then
 				config = {}
@@ -164,6 +174,7 @@ return {
 						javascriptreact = { "prettier" },
 						typescript = { "prettier" },
 						typescriptreact = { "prettier" },
+						swift = { "swiftformat" },
 						go = { "gofmt" },
 						graphql = { "prettier" },
 						clojure = { "cljfmt" },

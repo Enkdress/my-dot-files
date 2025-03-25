@@ -1,5 +1,14 @@
 return {
-	{ "catppuccin/nvim", name = "catppuccin" },
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		opt = { transparent = true },
+		config = function()
+			require("catppuccin").setup({
+				transparent_background = true,
+			})
+		end,
+	},
 	{
 		"rose-pine/neovim",
 		name = "rose-pine",

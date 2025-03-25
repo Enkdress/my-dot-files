@@ -53,6 +53,8 @@ require("lazy").setup({ import = "enkdress/plugins" }, {
 	},
 })
 
+vim.o.termguicolors = true
+
 local function check_fav_schemas(color_name)
 	local is_fav = false
 	local fav_colorschemes = {

@@ -20,7 +20,7 @@ handle_options() {
         shift
         ;;
       -a | --all-projects)
-        selected=$(find ~/.dotFiles ~/.dotFiles/config ~/dev/nu ~/Documents/Personal -mindepth 1 -maxdepth 1 -type d | fzf)
+        selected=$(find ~/.dotFiles ~/.dotFiles/config ~/dev ~/Documents/Personal -mindepth 1 -maxdepth 1 -type d | fzf)
         shift
         ;;
       *)

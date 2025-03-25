@@ -24,38 +24,16 @@ return {
 		local lspconfig = require("lspconfig")
 
 		local servers = {
-			clojure_lsp = true,
+			-- clojure_lsp = true,
 			gopls = true,
 			pyright = true,
 			lua_ls = true,
-			templ = true,
+			-- templ = true,
 			html = true,
-			htmx = true,
+			-- htmx = true,
 			cssls = true,
 			eslint = true,
-			vtsls = {
-				settings = {
-					javascript = {
-						inlayHints = {
-							includeInlayEnumMemberValueHints = true,
-							includeInlayFunctionLikeReturnTypeHints = true,
-							includeInlayFunctionParameterTypeHints = true,
-							includeInlayParameterNameHints = "literals", -- 'none' | 'literals' | 'all';
-							includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-							includeInlayPropertyDeclarationTypeHints = true,
-							includeInlayVariableTypeHints = true,
-						},
-					},
-					typescript = {
-						inlayHints = {
-							includeInlayFunctionParameterTypeHints = true,
-							includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
-							includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-							includeInlayPropertyDeclarationTypeHints = true,
-						},
-					},
-				},
-			},
+			ts_ls = true,
 			tailwindcss = {
 				userLanguages = { templ = "html" },
 			},
@@ -93,12 +71,10 @@ return {
 
 		local ensure_installed = {
 			"stylua",
-			"lua_ls",
 			"typescript-language-server",
 			"tailwindcss",
 			"gopls",
 			"jsonls",
-			"clojure_lsp",
 		}
 
 		vim.list_extend(ensure_installed, servers_to_install)

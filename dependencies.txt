@@ -1,5 +1,5 @@
 bat - https://github.com/sharkdp/bat
-exa - https://the.exa.website/
+eca - 
 neovim
 volta - https://volta.sh/
 starship - https://starship.rs/

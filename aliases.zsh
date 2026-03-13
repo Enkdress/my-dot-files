@@ -1,5 +1,5 @@
 # vim and emacs
-alias v="nvim"
+alias vclj="NVIM_APPNAME=nvim-clojurev2 nvim"
 
 # Changing "ls" to "exa"
 alias exa="eza"
